@@ -1,0 +1,27 @@
+ [
+  {
+  "vcName": "HomeVC",
+  "title": "首页",
+  "imageName": "tabbar_home"
+  },
+  {
+  "vcName": "MessageVC",
+  "title": "消息",
+  "imageName": "tabbar_message_center"
+  },
+  {
+  "vcName": "NullVC",
+  "title": "",
+  "imageName": ""
+  },
+  {
+  "vcName": "DiscoverVC",
+  "title": "广场",
+  "imageName": "tabbar_discover"
+  },
+  {
+  "vcName": "MeVC",
+  "title": "我",
+  "imageName": "tabbar_profile"
+  }
+  ]
