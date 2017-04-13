@@ -13,11 +13,9 @@ class MeVC: BaseTableVC {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        if !hasLogin {
+            visitorView?.setupViews(imageName: "visitordiscover_image_message", title: "发现一些爆炸出轨新闻～")
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="Z2J-AT-HEr" customClass="VisitorView" customModule="mxwb" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="Z2J-AT-HEr" customClass="VisitorView" customModule="MXWB" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -74,7 +74,7 @@
                 <outlet property="registBtn" destination="FjY-IO-ki6" id="LCj-Th-nrO"/>
                 <outlet property="rotateView" destination="i4l-jK-dl3" id="SR1-JV-0E3"/>
             </connections>
-            <point key="canvasLocation" x="-239" y="260"/>
+            <point key="canvasLocation" x="-45" y="168"/>
         </view>
     </objects>
     <resources>

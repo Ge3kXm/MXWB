@@ -14,13 +14,9 @@ class HomeVC: BaseTableVC
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-//        let tableView = UITableView(frame : self.view.bounds, style : UITableViewStyle(rawValue: 0)!)
-//        tableView.dataSource = self;
-//        tableView.delegate = self;
-//        self.view.addSubview(tableView)
-//        
-//        self.view.backgroundColor = UIColor.red
+        if !hasLogin {
+            visitorView?.setupViews(imageName: nil, title: "关注一些人去～")
+        }
         
     }
 
