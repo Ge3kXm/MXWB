@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D1BCBA31E9F5C760042924A /* MXPresentationC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BCBA21E9F5C760042924A /* MXPresentationC.swift */; };
+		4D1BCBA51E9F5D2E0042924A /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D1BCBA41E9F5D2E0042924A /* Popover.storyboard */; };
 		4D4A1A891E9F1F2A009B654D /* MXWBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1A881E9F1F2A009B654D /* MXWBUITests.swift */; };
 		4D4A1AAE1E9F20A4009B654D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4A1A931E9F20A4009B654D /* Assets.xcassets */; };
 		4D4A1AAF1E9F20A4009B654D /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1A961E9F20A4009B654D /* DiscoverVC.swift */; };
@@ -22,6 +24,7 @@
 		4D4A1AB91E9F20A4009B654D /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1AA71E9F20A4009B654D /* UIButton+Extension.swift */; };
 		4D4A1ABA1E9F20A4009B654D /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4A1AAA1E9F20A4009B654D /* MainVCSettings.json */; };
 		4D4A1ABB1E9F20A4009B654D /* MXLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1AAC1E9F20A4009B654D /* MXLog.swift */; };
+		4D4A1ABF1E9F2E35009B654D /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1ABE1E9F2E35009B654D /* TitleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D1BCBA21E9F5C760042924A /* MXPresentationC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXPresentationC.swift; sourceTree = "<group>"; };
+		4D1BCBA41E9F5D2E0042924A /* Popover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
 		4D4A1A701E9F1F2A009B654D /* MXWB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXWB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4A1A7F1E9F1F2A009B654D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../Info.plist; sourceTree = "<group>"; };
 		4D4A1A841E9F1F2A009B654D /* MXWBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXWBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +59,7 @@
 		4D4A1AA71E9F20A4009B654D /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		4D4A1AAA1E9F20A4009B654D /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		4D4A1AAC1E9F20A4009B654D /* MXLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXLog.swift; sourceTree = "<group>"; };
+		4D4A1ABE1E9F2E35009B654D /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				4D4A1A981E9F20A4009B654D /* HomeVC.swift */,
+				4D1BCBA21E9F5C760042924A /* MXPresentationC.swift */,
+				4D1BCBA41E9F5D2E0042924A /* Popover.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -171,6 +179,7 @@
 				4D4A1AA21E9F20A4009B654D /* TabBarVC.swift */,
 				4D4A1AA31E9F20A4009B654D /* VisitorView.swift */,
 				4D4A1AA41E9F20A4009B654D /* VisitorView.xib */,
+				4D4A1ABE1E9F2E35009B654D /* TitleButton.swift */,
 			);
 			path = TabBarVC;
 			sourceTree = "<group>";
@@ -310,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D1BCBA51E9F5D2E0042924A /* Popover.storyboard in Resources */,
 				4D4A1AAE1E9F20A4009B654D /* Assets.xcassets in Resources */,
 				4D4A1AB81E9F20A4009B654D /* VisitorView.xib in Resources */,
 				4D4A1ABA1E9F20A4009B654D /* MainVCSettings.json in Resources */,
@@ -334,12 +344,14 @@
 				4D4A1AB31E9F20A4009B654D /* MessageVC.swift in Sources */,
 				4D4A1AB51E9F20A4009B654D /* NullVC.swift in Sources */,
 				4D4A1AB91E9F20A4009B654D /* UIButton+Extension.swift in Sources */,
+				4D1BCBA31E9F5C760042924A /* MXPresentationC.swift in Sources */,
 				4D4A1AB11E9F20A4009B654D /* AppDelegate.swift in Sources */,
 				4D4A1ABB1E9F20A4009B654D /* MXLog.swift in Sources */,
 				4D4A1AAF1E9F20A4009B654D /* DiscoverVC.swift in Sources */,
 				4D4A1AB41E9F20A4009B654D /* BaseTableVC.swift in Sources */,
 				4D4A1AB71E9F20A4009B654D /* VisitorView.swift in Sources */,
 				4D4A1AB61E9F20A4009B654D /* TabBarVC.swift in Sources */,
+				4D4A1ABF1E9F2E35009B654D /* TitleButton.swift in Sources */,
 				4D4A1AB01E9F20A4009B654D /* HomeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

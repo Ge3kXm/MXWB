@@ -15,6 +15,7 @@ class DiscoverVC: BaseTableVC {
 
         if !hasLogin {
             visitorView?.setupViews(imageName: "visitordiscover_image_message", title: "发现一些爆炸出轨新闻～")
+            return
         }
     }
 

@@ -16,33 +16,48 @@ class HomeVC: BaseTableVC
         super.viewDidLoad()
         if !hasLogin {
             visitorView?.setupViews(imageName: nil, title: "关注一些人去～")
+//            return
         }
+        
+        setupNav()
+    }
+    
+    private func setupNav() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "navigationbar_friendattention"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeVC.leftBtnClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "navigationbar_pop"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeVC.rightBtnClick))
+        
+        let titleButton = TitleButton()
+        titleButton.setTitle("xxx", for: UIControlState.normal)
+        titleButton.addTarget(self, action: #selector(HomeVC.titleBtnClick(titleButton:)), for: UIControlEvents.touchUpInside)
+        navigationItem.titleView = titleButton
+
+    }
+    
+    @objc private func titleBtnClick(titleButton: TitleButton) {
+        
+        let popSB = UIStoryboard.init(name: "Popover", bundle: nil)
+        guard let menuVC = popSB.instantiateInitialViewController() else {
+            return
+        }
+        menuVC.transitioningDelegate = self
+        menuVC.modalPresentationStyle = UIModalPresentationStyle.custom
+        present(menuVC, animated: true, completion: nil)
+    }
+    
+    @objc private func leftBtnClick() {
+        
+    }
+    
+    @objc private func rightBtnClick() {
         
     }
 
 }
 
-//extension HomeVC : UITableViewDataSource
-//{
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 3
-//    }
-//    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cellID = "CellID"
-//        var cell = tableView.dequeueReusableCell(withIdentifier: cellID)
-//        if cell == nil {
-//            cell = UITableViewCell(style : UITableViewCellStyle(rawValue: 0)!, reuseIdentifier : cellID)
-//        }
-//        cell?.backgroundColor = UIColor.orange
-//        return cell!
-//    }
-//}
-//
-//extension HomeVC : UITableViewDelegate
-//{
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        
-//    }
-//}
+extension HomeVC: UIViewControllerTransitioningDelegate
+{
+    // 返回一个负责转场动画的对象
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return MXPresentationC.init(presentedViewController: presented, presenting: source)
+    }
+}
