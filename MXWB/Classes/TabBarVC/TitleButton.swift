@@ -36,6 +36,6 @@ class TitleButton: UIButton {
         super.layoutSubviews()
         
         titleLabel?.frame.origin.x = 0;
-        imageView?.frame.origin.x = (titleLabel?.frame.size.width)!;
+        imageView?.frame.origin.x = (titleLabel?.frame.size.width)! + 10;
     }
 }

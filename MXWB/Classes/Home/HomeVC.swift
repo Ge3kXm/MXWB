@@ -10,7 +10,18 @@ import UIKit
 
 class HomeVC: BaseTableVC
 {
-
+    private lazy var transitionMg = { () -> MXTransitionManager in
+        let transitionMg = MXTransitionManager()
+        transitionMg.presentViewFrame = CGRect.init(x: 100, y: 45, width: 200, height: 300)
+        return transitionMg
+    }()
+    
+    private lazy var titleBtn = { () -> TitleButton in
+        let titleBtn = TitleButton()
+        titleBtn.setTitle("xxx", for: UIControlState.normal)
+        return titleBtn
+    }()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -20,44 +31,63 @@ class HomeVC: BaseTableVC
         }
         
         setupNav()
+        addNotification()
     }
     
-    private func setupNav() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "navigationbar_friendattention"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeVC.leftBtnClick))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "navigationbar_pop"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeVC.rightBtnClick))
-        
-        let titleButton = TitleButton()
-        titleButton.setTitle("xxx", for: UIControlState.normal)
-        titleButton.addTarget(self, action: #selector(HomeVC.titleBtnClick(titleButton:)), for: UIControlEvents.touchUpInside)
-        navigationItem.titleView = titleButton
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func addNotification()
+    {
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeVC.menuDidPresented), name: NSNotification.Name(rawValue: MXTransitionManagerDidPresented), object: transitionMg)
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeVC.menuDidDismissed), name: NSNotification.Name(rawValue: MXTransitionManagerDidDismissed), object: transitionMg)
 
     }
     
-    @objc private func titleBtnClick(titleButton: TitleButton) {
+    // MARK: - 
+    private func setupNav()
+    {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "navigationbar_friendattention"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeVC.leftBtnClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "navigationbar_pop"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeVC.rightBtnClick))
         
+        
+        navigationItem.titleView = titleBtn
+        titleBtn.addTarget(self, action: #selector(HomeVC.titleBtnClick(titleButton:)), for: UIControlEvents.touchUpInside)
+
+    }
+    
+    @objc private func titleBtnClick(titleButton: TitleButton)
+    {
         let popSB = UIStoryboard.init(name: "Popover", bundle: nil)
         guard let menuVC = popSB.instantiateInitialViewController() else {
             return
         }
-        menuVC.transitioningDelegate = self
+        menuVC.transitioningDelegate = transitionMg
         menuVC.modalPresentationStyle = UIModalPresentationStyle.custom
         present(menuVC, animated: true, completion: nil)
     }
     
-    @objc private func leftBtnClick() {
+    @objc private func leftBtnClick()
+    {
         
     }
     
-    @objc private func rightBtnClick() {
+    @objc private func rightBtnClick()
+    {
         
     }
+    
+    @objc private func menuDidPresented()
+    {
+        titleBtn.isSelected = true
+    }
 
-}
-
-extension HomeVC: UIViewControllerTransitioningDelegate
-{
-    // 返回一个负责转场动画的对象
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return MXPresentationC.init(presentedViewController: presented, presenting: source)
+    @objc private func menuDidDismissed()
+    {
+        titleBtn.isSelected = false
     }
 }
+
+
+
