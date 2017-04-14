@@ -10,6 +10,8 @@
 		4887CF351EA0818D00F2CF10 /* MXTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4887CF331EA0818D00F2CF10 /* MXTransitionController.swift */; };
 		4887CF361EA0818D00F2CF10 /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4887CF341EA0818D00F2CF10 /* Popover.storyboard */; };
 		4887CF381EA081C900F2CF10 /* MXTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4887CF371EA081C900F2CF10 /* MXTransitionManager.swift */; };
+		4887CF3D1EA0B06D00F2CF10 /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4887CF3C1EA0B06D00F2CF10 /* QRCode.storyboard */; };
+		4887CF3F1EA0B37200F2CF10 /* QRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4887CF3E1EA0B37200F2CF10 /* QRCodeVC.swift */; };
 		4D4A1A891E9F1F2A009B654D /* MXWBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1A881E9F1F2A009B654D /* MXWBUITests.swift */; };
 		4D4A1AAE1E9F20A4009B654D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4A1A931E9F20A4009B654D /* Assets.xcassets */; };
 		4D4A1AAF1E9F20A4009B654D /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1A961E9F20A4009B654D /* DiscoverVC.swift */; };
@@ -42,6 +44,8 @@
 		4887CF331EA0818D00F2CF10 /* MXTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXTransitionController.swift; sourceTree = "<group>"; };
 		4887CF341EA0818D00F2CF10 /* Popover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
 		4887CF371EA081C900F2CF10 /* MXTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXTransitionManager.swift; sourceTree = "<group>"; };
+		4887CF3C1EA0B06D00F2CF10 /* QRCode.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCode.storyboard; sourceTree = "<group>"; };
+		4887CF3E1EA0B37200F2CF10 /* QRCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeVC.swift; sourceTree = "<group>"; };
 		4D4A1A701E9F1F2A009B654D /* MXWB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXWB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4A1A7F1E9F1F2A009B654D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../Info.plist; sourceTree = "<group>"; };
 		4D4A1A841E9F1F2A009B654D /* MXWBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXWBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +94,15 @@
 				4887CF341EA0818D00F2CF10 /* Popover.storyboard */,
 			);
 			path = Popover;
+			sourceTree = "<group>";
+		};
+		4887CF391EA0AFD800F2CF10 /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				4887CF3C1EA0B06D00F2CF10 /* QRCode.storyboard */,
+				4887CF3E1EA0B37200F2CF10 /* QRCodeVC.swift */,
+			);
+			path = QRCode;
 			sourceTree = "<group>";
 		};
 		4D4A1A671E9F1F2A009B654D = {
@@ -152,6 +165,7 @@
 		4D4A1A971E9F20A4009B654D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4887CF391EA0AFD800F2CF10 /* QRCode */,
 				4887CF321EA0818D00F2CF10 /* Popover */,
 				4D4A1A981E9F20A4009B654D /* HomeVC.swift */,
 			);
@@ -334,6 +348,7 @@
 				4D4A1AAE1E9F20A4009B654D /* Assets.xcassets in Resources */,
 				4D4A1AB81E9F20A4009B654D /* VisitorView.xib in Resources */,
 				4D4A1ABA1E9F20A4009B654D /* MainVCSettings.json in Resources */,
+				4887CF3D1EA0B06D00F2CF10 /* QRCode.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +368,7 @@
 			files = (
 				4D4A1AB21E9F20A4009B654D /* MeVC.swift in Sources */,
 				4D4A1AB31E9F20A4009B654D /* MessageVC.swift in Sources */,
+				4887CF3F1EA0B37200F2CF10 /* QRCodeVC.swift in Sources */,
 				4D4A1AB51E9F20A4009B654D /* NullVC.swift in Sources */,
 				4D4A1AB91E9F20A4009B654D /* UIButton+Extension.swift in Sources */,
 				4887CF351EA0818D00F2CF10 /* MXTransitionController.swift in Sources */,

@@ -75,6 +75,12 @@ class HomeVC: BaseTableVC
     
     @objc private func rightBtnClick()
     {
+        let QRCodeSB = UIStoryboard.init(name: "QRCode", bundle: nil)
+        guard let QRCodeVC = QRCodeSB.instantiateInitialViewController() else {
+            return
+        }
+        
+        present(QRCodeVC, animated: true, completion: nil)
         
     }
     
