@@ -12,6 +12,7 @@
 		4887CF381EA081C900F2CF10 /* MXTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4887CF371EA081C900F2CF10 /* MXTransitionManager.swift */; };
 		4887CF3D1EA0B06D00F2CF10 /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4887CF3C1EA0B06D00F2CF10 /* QRCode.storyboard */; };
 		4887CF3F1EA0B37200F2CF10 /* QRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4887CF3E1EA0B37200F2CF10 /* QRCodeVC.swift */; };
+		4D1BCBAB1EA5EBD20042924A /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BCBAA1EA5EBD20042924A /* HttpManager.swift */; };
 		4D4A1A891E9F1F2A009B654D /* MXWBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1A881E9F1F2A009B654D /* MXWBUITests.swift */; };
 		4D4A1AAE1E9F20A4009B654D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4A1A931E9F20A4009B654D /* Assets.xcassets */; };
 		4D4A1AAF1E9F20A4009B654D /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1A961E9F20A4009B654D /* DiscoverVC.swift */; };
@@ -28,6 +29,7 @@
 		4D4A1ABA1E9F20A4009B654D /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D4A1AAA1E9F20A4009B654D /* MainVCSettings.json */; };
 		4D4A1ABB1E9F20A4009B654D /* MXLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1AAC1E9F20A4009B654D /* MXLog.swift */; };
 		4D4A1ABF1E9F2E35009B654D /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1ABE1E9F2E35009B654D /* TitleButton.swift */; };
+		5A475A54E3044B2E5E8097BA /* Pods_MXWB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37DE71E9BF49BA5A2DF940F3 /* Pods_MXWB.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,11 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37DE71E9BF49BA5A2DF940F3 /* Pods_MXWB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MXWB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4887CF331EA0818D00F2CF10 /* MXTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXTransitionController.swift; sourceTree = "<group>"; };
 		4887CF341EA0818D00F2CF10 /* Popover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
 		4887CF371EA081C900F2CF10 /* MXTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXTransitionManager.swift; sourceTree = "<group>"; };
 		4887CF3C1EA0B06D00F2CF10 /* QRCode.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCode.storyboard; sourceTree = "<group>"; };
 		4887CF3E1EA0B37200F2CF10 /* QRCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeVC.swift; sourceTree = "<group>"; };
+		4D1BCBAA1EA5EBD20042924A /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
 		4D4A1A701E9F1F2A009B654D /* MXWB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXWB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4A1A7F1E9F1F2A009B654D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../Info.plist; sourceTree = "<group>"; };
 		4D4A1A841E9F1F2A009B654D /* MXWBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXWBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +70,8 @@
 		4D4A1AAA1E9F20A4009B654D /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		4D4A1AAC1E9F20A4009B654D /* MXLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXLog.swift; sourceTree = "<group>"; };
 		4D4A1ABE1E9F2E35009B654D /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
+		85CDEFFE8F774E31E9A0BAF8 /* Pods-MXWB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXWB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MXWB/Pods-MXWB.debug.xcconfig"; sourceTree = "<group>"; };
+		B91B1AA5236276B2192D3A3B /* Pods-MXWB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXWB.release.xcconfig"; path = "Pods/Target Support Files/Pods-MXWB/Pods-MXWB.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A475A54E3044B2E5E8097BA /* Pods_MXWB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F87AE95E614A9E9B0D59DF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37DE71E9BF49BA5A2DF940F3 /* Pods_MXWB.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4887CF321EA0818D00F2CF10 /* Popover */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,12 +120,29 @@
 			path = QRCode;
 			sourceTree = "<group>";
 		};
+		4D1BCBA91EA5E91B0042924A /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				4D1BCBAA1EA5EBD20042924A /* HttpManager.swift */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		4D1BCBAC1EA5FAAB0042924A /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
 		4D4A1A671E9F1F2A009B654D = {
 			isa = PBXGroup;
 			children = (
 				4D4A1A721E9F1F2A009B654D /* MXWB */,
 				4D4A1A871E9F1F2A009B654D /* MXWBUITests */,
 				4D4A1A711E9F1F2A009B654D /* Products */,
+				A1648755E086E01C91D3F148 /* Pods */,
+				3F87AE95E614A9E9B0D59DF8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,6 +176,7 @@
 		4D4A1A941E9F20A4009B654D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4D1BCBAC1EA5FAAB0042924A /* OAuth */,
 				4D4A1A951E9F20A4009B654D /* Discover */,
 				4D4A1A971E9F20A4009B654D /* Home */,
 				4D4A1A991E9F20A4009B654D /* Launch */,
@@ -212,6 +245,7 @@
 		4D4A1AA51E9F20A4009B654D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4D1BCBA91EA5E91B0042924A /* Http */,
 				4D4A1AA61E9F20A4009B654D /* Extension */,
 				4D4A1AA81E9F20A4009B654D /* Macro */,
 				4D4A1AA91E9F20A4009B654D /* Resources */,
@@ -261,6 +295,15 @@
 			path = Vendor;
 			sourceTree = "<group>";
 		};
+		A1648755E086E01C91D3F148 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				85CDEFFE8F774E31E9A0BAF8 /* Pods-MXWB.debug.xcconfig */,
+				B91B1AA5236276B2192D3A3B /* Pods-MXWB.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -268,9 +311,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D4A1A8D1E9F1F2A009B654D /* Build configuration list for PBXNativeTarget "MXWB" */;
 			buildPhases = (
+				5B0992B73CD1132BF2608C67 /* [CP] Check Pods Manifest.lock */,
 				4D4A1A6C1E9F1F2A009B654D /* Sources */,
 				4D4A1A6D1E9F1F2A009B654D /* Frameworks */,
 				4D4A1A6E1E9F1F2A009B654D /* Resources */,
+				E61261387F5BB566B02582A6 /* [CP] Embed Pods Frameworks */,
+				6A322C85F5E99D1CB5B14A26 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -361,6 +407,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5B0992B73CD1132BF2608C67 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6A322C85F5E99D1CB5B14A26 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MXWB/Pods-MXWB-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E61261387F5BB566B02582A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MXWB/Pods-MXWB-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4D4A1A6C1E9F1F2A009B654D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -373,6 +467,7 @@
 				4D4A1AB91E9F20A4009B654D /* UIButton+Extension.swift in Sources */,
 				4887CF351EA0818D00F2CF10 /* MXTransitionController.swift in Sources */,
 				4D4A1AB11E9F20A4009B654D /* AppDelegate.swift in Sources */,
+				4D1BCBAB1EA5EBD20042924A /* HttpManager.swift in Sources */,
 				4D4A1ABB1E9F20A4009B654D /* MXLog.swift in Sources */,
 				4D4A1AAF1E9F20A4009B654D /* DiscoverVC.swift in Sources */,
 				4D4A1AB41E9F20A4009B654D /* BaseTableVC.swift in Sources */,
@@ -498,6 +593,7 @@
 		};
 		4D4A1A8E1E9F1F2A009B654D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85CDEFFE8F774E31E9A0BAF8 /* Pods-MXWB.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -511,6 +607,7 @@
 		};
 		4D4A1A8F1E9F1F2A009B654D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B91B1AA5236276B2192D3A3B /* Pods-MXWB.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
