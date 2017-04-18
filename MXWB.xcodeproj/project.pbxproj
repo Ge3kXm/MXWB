@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48495BF01EA654E5002E19E7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48495BEF1EA654E5002E19E7 /* String+Extension.swift */; };
 		4887CF351EA0818D00F2CF10 /* MXTransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4887CF331EA0818D00F2CF10 /* MXTransitionController.swift */; };
 		4887CF361EA0818D00F2CF10 /* Popover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4887CF341EA0818D00F2CF10 /* Popover.storyboard */; };
 		4887CF381EA081C900F2CF10 /* MXTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4887CF371EA081C900F2CF10 /* MXTransitionManager.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		37DE71E9BF49BA5A2DF940F3 /* Pods_MXWB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MXWB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48495BEF1EA654E5002E19E7 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		4887CF331EA0818D00F2CF10 /* MXTransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXTransitionController.swift; sourceTree = "<group>"; };
 		4887CF341EA0818D00F2CF10 /* Popover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Popover.storyboard; sourceTree = "<group>"; };
 		4887CF371EA081C900F2CF10 /* MXTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXTransitionManager.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				4D4A1AA71E9F20A4009B654D /* UIButton+Extension.swift */,
+				48495BEF1EA654E5002E19E7 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				4D4A1AB91E9F20A4009B654D /* UIButton+Extension.swift in Sources */,
 				4887CF351EA0818D00F2CF10 /* MXTransitionController.swift in Sources */,
 				4D4A1AB11E9F20A4009B654D /* AppDelegate.swift in Sources */,
+				48495BF01EA654E5002E19E7 /* String+Extension.swift in Sources */,
 				4D1BCBB01EA616100042924A /* APPInfoMacro.swift in Sources */,
 				4D1BCBAB1EA5EBD20042924A /* HttpManager.swift in Sources */,
 				4D1BCBB21EA625450042924A /* OAuthAccount.swift in Sources */,

@@ -64,13 +64,13 @@ extension OAuthVC: UIWebViewDelegate
     
     private func getAccessToken(requestToken: String?)
     {
-//        let path = "oauth2/access_token"
-//        let parameters = ["client_id": MXWB_APP_Key, "client_secret": MXWB_APP_Secret, "grant_type": "authorization_code", "code": requestToken, "redirect_uri": MXWB_APP_Redirect_Uri]
-//
-//        HttpManager.sharedManager.post(path, parameters: parameters, progress: nil, success: { (sessionTast: URLSessionTask, obj: Dictionary) in
-//            MXLog(obj)
-//        }) { (sessionTast: URLSessionTask, error: Error) in
-//            MXLog(error)
-//        }
+        let path = "oauth2/access_token"
+        let parameters = ["client_id": MXWB_APP_Key, "client_secret": MXWB_APP_Secret, "grant_type": "authorization_code", "code": requestToken, "redirect_uri": MXWB_APP_Redirect_Uri]
+
+        HttpManager.sharedManager.post(path, parameters: parameters, progress: nil, success: { (sessionTask: URLSessionDataTask, obj: Any) in
+            MXLog(obj)
+        }) { (sessionTask: URLSessionDataTask?, error: Error) in
+            MXLog(error)
+        }
     }
 }
