@@ -23,7 +23,7 @@ class MXTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIVi
     // 返回一个负责转场动画的对象
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController?
     {
-        let pc = MXTransitionController.init(presentedViewController: presented, presenting: source)
+        let pc = MXTransitionController(presentedViewController: presented, presenting: source)
         pc.presentedViewFrame = presentViewFrame
         return pc
     }
@@ -71,8 +71,8 @@ class MXTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIVi
         containerView.addSubview(toView)
         
         // 动画实现菜单的弹出
-        toView.transform = CGAffineTransform.init(scaleX: 1.0, y: 0)
-        toView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 0)
+        toView.transform = CGAffineTransform(scaleX: 1.0, y: 0)
+        toView.layer.anchorPoint = CGPoint(x: 0.5, y: 0)
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             toView.transform = CGAffineTransform.identity
         }) { (_) in
@@ -87,9 +87,9 @@ class MXTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIVi
             return
         }
         
-        fromView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 0)
+        fromView.layer.anchorPoint = CGPoint(x: 0.5, y: 0)
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-            fromView.transform = CGAffineTransform.init(scaleX: 1.0, y: 0.00001)
+            fromView.transform = CGAffineTransform(scaleX: 1.0, y: 0.00001)
         }, completion: { (_) in
             fromView.removeFromSuperview()
             // 完成动画后必须要调用该方法

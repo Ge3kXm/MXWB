@@ -11,9 +11,9 @@ import AFNetworking
 
 class HttpManager: AFHTTPSessionManager {
     static let sharedManager :HttpManager = {
-        let baseUrl = URL.init(string: "https://api.weibo.com/")
-        let instance = HttpManager.init(baseURL: baseUrl, sessionConfiguration: URLSessionConfiguration.default)
-        instance.responseSerializer.acceptableContentTypes = NSSet.init(object: "text/plain") as? Set
+        let baseUrl = URL(string: "https://api.weibo.com/")
+        let instance = HttpManager(baseURL: baseUrl, sessionConfiguration: URLSessionConfiguration.default)
+        instance.responseSerializer.acceptableContentTypes = NSSet(object: "text/plain") as? Set
         return instance
     }()
 

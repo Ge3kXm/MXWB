@@ -22,8 +22,8 @@ class BaseTableVC: UITableViewController {
         visitorView = VisitorView.visitorView()
         view = visitorView
         
-        visitorView?.registBtn.addTarget(self, action: Selector(("registBtnClick:")), for: UIControlEvents.touchUpInside)
-        visitorView?.registBtn.addTarget(self, action: Selector(("loginBtnClick:")), for: UIControlEvents.touchUpInside)
+        visitorView?.registBtn.addTarget(self, action: #selector((BaseTableVC.registBtnClick(registBtn:))), for: UIControlEvents.touchUpInside)
+        visitorView?.loginBtn.addTarget(self, action: #selector(BaseTableVC.loginBtnClick(login:)), for: UIControlEvents.touchUpInside)
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: UIBarButtonItemStyle.plain, target: self, action: #selector(BaseTableVC.registBtnClick(registBtn:)))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: UIBarButtonItemStyle.plain, target: self, action: #selector(BaseTableVC.loginBtnClick(login:)))
@@ -35,5 +35,7 @@ class BaseTableVC: UITableViewController {
     
     @objc private func loginBtnClick(login: UIButton) {
         MXLog(login)
+//        navigationController?.pushViewController(OAuthVC(), animated: true)
+        present(OAuthVC(), animated: true, completion: nil)
     }
 }

@@ -13,6 +13,9 @@
 		4887CF3D1EA0B06D00F2CF10 /* QRCode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4887CF3C1EA0B06D00F2CF10 /* QRCode.storyboard */; };
 		4887CF3F1EA0B37200F2CF10 /* QRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4887CF3E1EA0B37200F2CF10 /* QRCodeVC.swift */; };
 		4D1BCBAB1EA5EBD20042924A /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BCBAA1EA5EBD20042924A /* HttpManager.swift */; };
+		4D1BCBAE1EA612D90042924A /* OAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BCBAD1EA612D90042924A /* OAuthVC.swift */; };
+		4D1BCBB01EA616100042924A /* APPInfoMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BCBAF1EA616100042924A /* APPInfoMacro.swift */; };
+		4D1BCBB21EA625450042924A /* OAuthAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BCBB11EA625450042924A /* OAuthAccount.swift */; };
 		4D4A1A891E9F1F2A009B654D /* MXWBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1A881E9F1F2A009B654D /* MXWBUITests.swift */; };
 		4D4A1AAE1E9F20A4009B654D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4A1A931E9F20A4009B654D /* Assets.xcassets */; };
 		4D4A1AAF1E9F20A4009B654D /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1A961E9F20A4009B654D /* DiscoverVC.swift */; };
@@ -50,6 +53,9 @@
 		4887CF3C1EA0B06D00F2CF10 /* QRCode.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QRCode.storyboard; sourceTree = "<group>"; };
 		4887CF3E1EA0B37200F2CF10 /* QRCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeVC.swift; sourceTree = "<group>"; };
 		4D1BCBAA1EA5EBD20042924A /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
+		4D1BCBAD1EA612D90042924A /* OAuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthVC.swift; sourceTree = "<group>"; };
+		4D1BCBAF1EA616100042924A /* APPInfoMacro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APPInfoMacro.swift; sourceTree = "<group>"; };
+		4D1BCBB11EA625450042924A /* OAuthAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccount.swift; sourceTree = "<group>"; };
 		4D4A1A701E9F1F2A009B654D /* MXWB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXWB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4A1A7F1E9F1F2A009B654D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../Info.plist; sourceTree = "<group>"; };
 		4D4A1A841E9F1F2A009B654D /* MXWBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXWBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +137,8 @@
 		4D1BCBAC1EA5FAAB0042924A /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
+				4D1BCBAD1EA612D90042924A /* OAuthVC.swift */,
+				4D1BCBB11EA625450042924A /* OAuthAccount.swift */,
 			);
 			path = OAuth;
 			sourceTree = "<group>";
@@ -266,6 +274,7 @@
 		4D4A1AA81E9F20A4009B654D /* Macro */ = {
 			isa = PBXGroup;
 			children = (
+				4D1BCBAF1EA616100042924A /* APPInfoMacro.swift */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -463,11 +472,14 @@
 				4D4A1AB21E9F20A4009B654D /* MeVC.swift in Sources */,
 				4D4A1AB31E9F20A4009B654D /* MessageVC.swift in Sources */,
 				4887CF3F1EA0B37200F2CF10 /* QRCodeVC.swift in Sources */,
+				4D1BCBAE1EA612D90042924A /* OAuthVC.swift in Sources */,
 				4D4A1AB51E9F20A4009B654D /* NullVC.swift in Sources */,
 				4D4A1AB91E9F20A4009B654D /* UIButton+Extension.swift in Sources */,
 				4887CF351EA0818D00F2CF10 /* MXTransitionController.swift in Sources */,
 				4D4A1AB11E9F20A4009B654D /* AppDelegate.swift in Sources */,
+				4D1BCBB01EA616100042924A /* APPInfoMacro.swift in Sources */,
 				4D1BCBAB1EA5EBD20042924A /* HttpManager.swift in Sources */,
+				4D1BCBB21EA625450042924A /* OAuthAccount.swift in Sources */,
 				4D4A1ABB1E9F20A4009B654D /* MXLog.swift in Sources */,
 				4D4A1AAF1E9F20A4009B654D /* DiscoverVC.swift in Sources */,
 				4D4A1AB41E9F20A4009B654D /* BaseTableVC.swift in Sources */,

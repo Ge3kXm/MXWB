@@ -12,7 +12,7 @@ class HomeVC: BaseTableVC
 {
     private lazy var transitionMg = { () -> MXTransitionManager in
         let transitionMg = MXTransitionManager()
-        transitionMg.presentViewFrame = CGRect.init(x: 100, y: 45, width: 200, height: 300)
+        transitionMg.presentViewFrame = CGRect(x: 100, y: 45, width: 200, height: 300)
         return transitionMg
     }()
     
@@ -29,7 +29,6 @@ class HomeVC: BaseTableVC
             visitorView?.setupViews(imageName: nil, title: "关注一些人去～")
 //            return
         }
-        
         setupNav()
         addNotification()
     }
@@ -59,7 +58,7 @@ class HomeVC: BaseTableVC
     
     @objc private func titleBtnClick(titleButton: TitleButton)
     {
-        let popSB = UIStoryboard.init(name: "Popover", bundle: nil)
+        let popSB = UIStoryboard(name: "Popover", bundle: nil)
         guard let menuVC = popSB.instantiateInitialViewController() else {
             return
         }
@@ -75,7 +74,7 @@ class HomeVC: BaseTableVC
     
     @objc private func rightBtnClick()
     {
-        let QRCodeSB = UIStoryboard.init(name: "QRCode", bundle: nil)
+        let QRCodeSB = UIStoryboard(name: "QRCode", bundle: nil)
         guard let QRCodeVC = QRCodeSB.instantiateInitialViewController() else {
             return
         }
