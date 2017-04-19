@@ -15,7 +15,7 @@ extension String
         let filePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last!
         let name = (self as NSString).lastPathComponent
         let fullPath = (filePath as NSString).appendingPathComponent(name)
-
+        MXLog(fullPath)
         return fullPath
     }
     

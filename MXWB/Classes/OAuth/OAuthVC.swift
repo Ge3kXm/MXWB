@@ -12,12 +12,12 @@ class OAuthVC: UIViewController
 {
     // MARK: -
     lazy var webView :UIWebView = {
-        let webView = UIWebView.init(frame: UIScreen.main.bounds)
+        let webView = UIWebView(frame: UIScreen.main.bounds)
         webView.delegate = self
         return webView
     }()
     
-    let oAuthRequest = URLRequest.init(url: URL(string: "https://api.weibo.com/oauth2/authorize?client_id=\(MXWB_APP_Key)&redirect_uri=\(MXWB_APP_Redirect_Uri)")!)
+    let oAuthRequest = URLRequest(url: URL(string: "https://api.weibo.com/oauth2/authorize?client_id=\(MXWB_APP_Key)&redirect_uri=\(MXWB_APP_Redirect_Uri)")!)
     
     
     // MARK: -
@@ -56,7 +56,7 @@ extension OAuthVC: UIWebViewDelegate
             let requestToken = request.url?.query!.substring(from: key.endIndex)
             getAccessToken(requestToken: requestToken)
             MXLog(requestToken)
-            return true
+            return false
         }
         return true
     }
@@ -69,6 +69,9 @@ extension OAuthVC: UIWebViewDelegate
 
         HttpManager.sharedManager.post(path, parameters: parameters, progress: nil, success: { (sessionTask: URLSessionDataTask, obj: Any) in
             MXLog(obj)
+            let account = OAuthAccount(dict: (obj as! [String: Any]))
+            MXLog(account.saveAccount())
+            self.dismiss(animated: true, completion: nil)
         }) { (sessionTask: URLSessionDataTask?, error: Error) in
             MXLog(error)
         }

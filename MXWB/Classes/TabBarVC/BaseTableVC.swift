@@ -10,7 +10,7 @@ import UIKit
 
 class BaseTableVC: UITableViewController {
 
-    var hasLogin = false
+    var hasLogin = OAuthAccount.hasLogin()
     
     var visitorView: VisitorView?
     

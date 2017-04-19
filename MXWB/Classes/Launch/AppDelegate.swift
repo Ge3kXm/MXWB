@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = TabBarVC()
         window?.makeKeyAndVisible()
         
+        MXLog(OAuthAccount.getAccount())
+        
         UINavigationBar.appearance().tintColor = UIColor.orange
         return true
 
