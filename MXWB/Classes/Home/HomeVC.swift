@@ -39,8 +39,8 @@ class HomeVC: BaseTableVC
     
     private func addNotification()
     {
-        NotificationCenter.default.addObserver(self, selector: #selector(HomeVC.menuDidPresented), name: NSNotification.Name(rawValue: MXTransitionManagerDidPresented), object: transitionMg)
-        NotificationCenter.default.addObserver(self, selector: #selector(HomeVC.menuDidDismissed), name: NSNotification.Name(rawValue: MXTransitionManagerDidDismissed), object: transitionMg)
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeVC.menuDidPresented), name: NSNotification.Name(rawValue: MXWB_NOTIFICATION_TRANSITIONMANAGER_DIDPRESENTED), object: transitionMg)
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeVC.menuDidDismissed), name: NSNotification.Name(rawValue: MXWB_NOTIFICATION_TRANSITIONMANAGER_DIDDISMISSED), object: transitionMg)
 
     }
     

@@ -17,6 +17,9 @@
 		4D1BCBAE1EA612D90042924A /* OAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BCBAD1EA612D90042924A /* OAuthVC.swift */; };
 		4D1BCBB01EA616100042924A /* APPInfoMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BCBAF1EA616100042924A /* APPInfoMacro.swift */; };
 		4D1BCBB21EA625450042924A /* OAuthAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BCBB11EA625450042924A /* OAuthAccount.swift */; };
+		4D1BCBB51EA86AAF0042924A /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BCBB41EA86AAF0042924A /* WelcomeVC.swift */; };
+		4D1BCBB71EA86BD90042924A /* WelcomeVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D1BCBB61EA86BD90042924A /* WelcomeVC.storyboard */; };
+		4D1BCBBA1EA88EAD0042924A /* NewFeatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1BCBB81EA88EAD0042924A /* NewFeatureVC.swift */; };
 		4D4A1A891E9F1F2A009B654D /* MXWBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1A881E9F1F2A009B654D /* MXWBUITests.swift */; };
 		4D4A1AAE1E9F20A4009B654D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4A1A931E9F20A4009B654D /* Assets.xcassets */; };
 		4D4A1AAF1E9F20A4009B654D /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1A961E9F20A4009B654D /* DiscoverVC.swift */; };
@@ -58,6 +61,9 @@
 		4D1BCBAD1EA612D90042924A /* OAuthVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthVC.swift; sourceTree = "<group>"; };
 		4D1BCBAF1EA616100042924A /* APPInfoMacro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APPInfoMacro.swift; sourceTree = "<group>"; };
 		4D1BCBB11EA625450042924A /* OAuthAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthAccount.swift; sourceTree = "<group>"; };
+		4D1BCBB41EA86AAF0042924A /* WelcomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		4D1BCBB61EA86BD90042924A /* WelcomeVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WelcomeVC.storyboard; sourceTree = "<group>"; };
+		4D1BCBB81EA88EAD0042924A /* NewFeatureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFeatureVC.swift; sourceTree = "<group>"; };
 		4D4A1A701E9F1F2A009B654D /* MXWB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXWB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4A1A7F1E9F1F2A009B654D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../Info.plist; sourceTree = "<group>"; };
 		4D4A1A841E9F1F2A009B654D /* MXWBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MXWBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +151,14 @@
 			path = OAuth;
 			sourceTree = "<group>";
 		};
+		4D1BCBB31EA86A5E0042924A /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				4D1BCBB81EA88EAD0042924A /* NewFeatureVC.swift */,
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
 		4D4A1A671E9F1F2A009B654D = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +200,7 @@
 		4D4A1A941E9F20A4009B654D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4D1BCBB31EA86A5E0042924A /* NewFeature */,
 				4D1BCBAC1EA5FAAB0042924A /* OAuth */,
 				4D4A1A951E9F20A4009B654D /* Discover */,
 				4D4A1A971E9F20A4009B654D /* Home */,
@@ -219,6 +234,8 @@
 			isa = PBXGroup;
 			children = (
 				4D4A1A9A1E9F20A4009B654D /* AppDelegate.swift */,
+				4D1BCBB41EA86AAF0042924A /* WelcomeVC.swift */,
+				4D1BCBB61EA86BD90042924A /* WelcomeVC.storyboard */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -404,6 +421,7 @@
 			files = (
 				4887CF361EA0818D00F2CF10 /* Popover.storyboard in Resources */,
 				4D4A1AAE1E9F20A4009B654D /* Assets.xcassets in Resources */,
+				4D1BCBB71EA86BD90042924A /* WelcomeVC.storyboard in Resources */,
 				4D4A1AB81E9F20A4009B654D /* VisitorView.xib in Resources */,
 				4D4A1ABA1E9F20A4009B654D /* MainVCSettings.json in Resources */,
 				4887CF3D1EA0B06D00F2CF10 /* QRCode.storyboard in Resources */,
@@ -484,6 +502,8 @@
 				4D1BCBB01EA616100042924A /* APPInfoMacro.swift in Sources */,
 				4D1BCBAB1EA5EBD20042924A /* HttpManager.swift in Sources */,
 				4D1BCBB21EA625450042924A /* OAuthAccount.swift in Sources */,
+				4D1BCBBA1EA88EAD0042924A /* NewFeatureVC.swift in Sources */,
+				4D1BCBB51EA86AAF0042924A /* WelcomeVC.swift in Sources */,
 				4D4A1ABB1E9F20A4009B654D /* MXLog.swift in Sources */,
 				4D4A1AAF1E9F20A4009B654D /* DiscoverVC.swift in Sources */,
 				4D4A1AB41E9F20A4009B654D /* BaseTableVC.swift in Sources */,

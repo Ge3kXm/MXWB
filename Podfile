@@ -6,4 +6,5 @@ use_frameworks!
 
 target :MXWB do
 	pod ‘AFNetworking’
+	pod ‘SVProgressHUD’
 end

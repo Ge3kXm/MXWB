@@ -21,6 +21,14 @@ class OAuthAccount: NSObject, NSCoding {
     var uid: Int = 0
     var expires_date: Date?
     
+    var userId: String?
+    var avatar_large: String?
+    var screen_name: String?
+    
+    // 静态成员变量
+    static var oAuthAccount: OAuthAccount?
+    static let filePath = "oAtuthAccount.plist".cacheDir()
+    
     init(dict: [String: Any])
     {
         // 如果要想初始化方法中使用KVC必须先调用super.init初始化对象
@@ -35,18 +43,36 @@ class OAuthAccount: NSObject, NSCoding {
         
     }
     
+    func getUserInfo(finished: @escaping (_ account: OAuthAccount?, _ error: Error?) -> ())
+    {
+        assert(access_token != nil, "必须授权后才能获取用户信息")
+        
+        let path = "2/users/show.json"
+        let parameters = ["access_token": access_token!, "uid": uid] as [String : Any]
+        
+        HttpManager.sharedManager.get(path, parameters: parameters, progress: nil, success: { (task, obj) in
+            let userInfoDic = obj as! [String: Any]
+            self.avatar_large = userInfoDic["avatar_large"] as? String
+            self.userId = userInfoDic["userId"] as? String
+            self.screen_name = userInfoDic["screen_name"] as? String
+            
+            MXLog(obj)
+            finished(self, nil)
+        }) { (task, error) in
+            MXLog(error)
+            finished(self, error)
+        }
+        
+    }
+    
     /// 重写description
     override var description: String {
         // 将模型转换为字典
-        let property = ["access_token", "expires_in", "uid", "expires_date"]
+        let property = ["access_token", "expires_in", "uid", "expires_date", "userId", "avatar_large", "screen_name"]
         let dict = dictionaryWithValues(forKeys: property)
         // 将字典转换为字符串
         return "\(dict)"
     }
-    
-    
-    static var oAuthAccount: OAuthAccount?
-    static let filePath = "oAtuthAccount.plist".cacheDir()
     
     /// 保存token
     func saveAccount() -> Bool{
@@ -61,7 +87,7 @@ class OAuthAccount: NSObject, NSCoding {
         }
         
         guard let account = NSKeyedUnarchiver.unarchiveObject(withFile: OAuthAccount.filePath) as? OAuthAccount else {
-            return OAuthAccount.oAuthAccount
+            return nil
         }
         
         guard let date = account.expires_date, date.compare(Date()) != ComparisonResult.orderedAscending else {
@@ -72,7 +98,8 @@ class OAuthAccount: NSObject, NSCoding {
         return OAuthAccount.oAuthAccount
     }
     
-    ///
+    /// 
+    
     
     
     /// 判断是否已经登录
@@ -86,6 +113,9 @@ class OAuthAccount: NSObject, NSCoding {
         aCoder.encode(expires_in, forKey: "expires_in")
         aCoder.encode(uid, forKey: "uid")
         aCoder.encode(expires_date, forKey: "expires_date")
+        aCoder.encode(userId, forKey: "userId")
+        aCoder.encode(avatar_large, forKey: "avatar_large")
+        aCoder.encode(screen_name, forKey: "screen_name")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -95,5 +125,8 @@ class OAuthAccount: NSObject, NSCoding {
 //        self.uid =  aDecoder.decodeObject(forKey: "uid") as! Int
         self.uid = 2651026543
         self.expires_date = aDecoder.decodeObject(forKey: "expires_date") as? Date
+        self.avatar_large = aDecoder.decodeObject(forKey: "avatar_large") as? String
+        self.userId = aDecoder.decodeObject(forKey: "userId") as? String
+        self.screen_name = aDecoder.decodeObject(forKey: "screen_name") as? String
     }
 }

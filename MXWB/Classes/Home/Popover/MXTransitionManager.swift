@@ -8,9 +8,6 @@
 
 import UIKit
 
-let MXTransitionManagerDidPresented = "MXTransitionManagerDidPresented"
-let MXTransitionManagerDidDismissed = "MXTransitionManagerDidDismissed"
-
 class MXTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
     
     // 标志，为了判断转场动画中的fromView，和toView
@@ -31,7 +28,7 @@ class MXTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIVi
     // 返回一个管理弹出的对象
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning?
     {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: MXTransitionManagerDidPresented), object: self)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: MXWB_NOTIFICATION_TRANSITIONMANAGER_DIDPRESENTED), object: self)
         isPresented = true
         return self
     }
@@ -39,7 +36,7 @@ class MXTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIVi
     // 返回一个管理消失的对象
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning?
     {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: MXTransitionManagerDidDismissed), object: self)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: MXWB_NOTIFICATION_TRANSITIONMANAGER_DIDDISMISSED), object: self)
         isPresented = false
         return self
     }

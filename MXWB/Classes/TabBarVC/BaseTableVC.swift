@@ -35,7 +35,8 @@ class BaseTableVC: UITableViewController {
     
     @objc private func loginBtnClick(login: UIButton) {
         MXLog(login)
-//        navigationController?.pushViewController(OAuthVC(), animated: true)
-        present(OAuthVC(), animated: true, completion: nil)
+        
+        let nav = UINavigationController(rootViewController: OAuthVC())
+        present(nav, animated: true, completion: nil)
     }
 }
