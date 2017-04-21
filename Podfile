@@ -7,4 +7,5 @@ use_frameworks!
 target :MXWB do
 	pod ‘AFNetworking’
 	pod ‘SVProgressHUD’
+	pod ‘R.swift’,'~> 3.2.0’
 end

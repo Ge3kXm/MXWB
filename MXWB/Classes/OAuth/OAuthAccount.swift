@@ -37,6 +37,7 @@ class OAuthAccount: NSObject, NSCoding {
         setValuesForKeys(dict)
     }
     
+    //MARK: - privateFunc
     /// 找不到key时调用
     override func setValue(_ value: Any?, forUndefinedKey key: String)
     {
@@ -107,7 +108,7 @@ class OAuthAccount: NSObject, NSCoding {
         return OAuthAccount.getAccount() != nil
     }
     
-    // MARK: NSCoding协议
+    // MARK: - NSCoding协议
     func encode(with aCoder: NSCoder) {
         aCoder.encode(access_token, forKey: "access_token")
         aCoder.encode(expires_in, forKey: "expires_in")

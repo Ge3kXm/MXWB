@@ -9,7 +9,7 @@
 import UIKit
 
 class TabBarVC: UITabBarController {
-    // MARK Life cycle
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +30,7 @@ class TabBarVC: UITabBarController {
     }
     
 
-    // MARK Private
+    // MARK: - PrivateFunc
     func addVCs()
     {
         let filePath = Bundle.main.path(forResource: "MainVCSettings.json", ofType: nil)!
@@ -88,7 +88,7 @@ class TabBarVC: UITabBarController {
         MXLog(addButton)
     }
     
-    // MARK Lazy load
+    // MARK: - Lazy load
     lazy var midButton = {
         () -> UIButton
         in

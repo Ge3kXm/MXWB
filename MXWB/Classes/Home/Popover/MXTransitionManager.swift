@@ -56,7 +56,6 @@ class MXTransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIVi
         }else {
             willDismissController(transitionContext: transitionContext)
         }
-    
     }
     
     private func willPresentController(transitionContext: UIViewControllerContextTransitioning)

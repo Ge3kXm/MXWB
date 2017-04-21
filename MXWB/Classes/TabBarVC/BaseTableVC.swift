@@ -14,11 +14,13 @@ class BaseTableVC: UITableViewController {
     
     var visitorView: VisitorView?
     
+    // MARK: - 初始化方法
+    /// 重写loadview来返回默认的view
     override func loadView() {
-        hasLogin ? super.loadView() : setupView()
+        hasLogin ? super.loadView() : initDefaultView()
     }
     
-    func setupView() {
+    func initDefaultView() {
         visitorView = VisitorView.visitorView()
         view = visitorView
         
@@ -29,6 +31,7 @@ class BaseTableVC: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: UIBarButtonItemStyle.plain, target: self, action: #selector(BaseTableVC.loginBtnClick(login:)))
     }
     
+    //MARK: - 内部方法
     @objc private func registBtnClick(registBtn: UIButton) {
         MXLog(registBtn)
     }

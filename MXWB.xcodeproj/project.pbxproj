@@ -341,6 +341,7 @@
 			buildConfigurationList = 4D4A1A8D1E9F1F2A009B654D /* Build configuration list for PBXNativeTarget "MXWB" */;
 			buildPhases = (
 				5B0992B73CD1132BF2608C67 /* [CP] Check Pods Manifest.lock */,
+				4D2BA76B1EA9FA4C008E0BCB /* ShellScript */,
 				4D4A1A6C1E9F1F2A009B654D /* Sources */,
 				4D4A1A6D1E9F1F2A009B654D /* Frameworks */,
 				4D4A1A6E1E9F1F2A009B654D /* Resources */,
@@ -438,6 +439,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4D2BA76B1EA9FA4C008E0BCB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+				"",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
+		};
 		5B0992B73CD1132BF2608C67 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

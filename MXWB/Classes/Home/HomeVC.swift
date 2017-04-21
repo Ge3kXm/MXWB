@@ -44,7 +44,7 @@ class HomeVC: BaseTableVC
 
     }
     
-    // MARK: - 
+    // MARK: - 初始化导航栏
     private func setupNav()
     {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "navigationbar_friendattention"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(HomeVC.leftBtnClick))
