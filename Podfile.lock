@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Kingfisher (3.6.2)
   - R.swift (3.2.0):
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
@@ -21,15 +22,17 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Kingfisher (~> 3.6.2)
   - R.swift (~> 3.2.0)
   - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Kingfisher: 2c94e72c6830622c71d06adf4ea024c37d316830
   R.swift: 207a372a2b5977caef440c696a368009460641d1
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: 8bd38cf6c8a89c05f92275a005f833b7fd98ea97
+PODFILE CHECKSUM: 349c49451464ddd9581ed535d0f4c20acba0eaa1
 
 COCOAPODS: 1.1.1

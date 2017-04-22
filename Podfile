@@ -8,4 +8,5 @@ target :MXWB do
 	pod ‘AFNetworking’
 	pod ‘SVProgressHUD’
 	pod ‘R.swift’,'~> 3.2.0’
+	pod 'Kingfisher', '~> 3.6.2'
 end

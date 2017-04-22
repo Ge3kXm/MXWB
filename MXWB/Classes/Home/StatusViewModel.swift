@@ -1,0 +1,69 @@
+//
+//  StatusViewModel.swift
+//  MXWB
+//
+//  Created by maRk on 2017/4/22.
+//  Copyright © 2017年 maRk. All rights reserved.
+//
+
+import UIKit
+
+class StatusViewModel: NSObject {
+    var status: StatusModel
+    
+    /// 用户认证图片
+    var verified_image: UIImage?
+    /// 会员图片
+    var mbrankImage: UIImage?
+    /// 用户头像URL地址
+    var icon_URL: URL?
+    /// 微博格式化之后的创建时间
+    var created_Time: String = ""
+    /// 微博格式化之后的来源
+    var source_Text: String = ""
+    
+    init(status: StatusModel)
+    {
+        self.status = status
+        // 会员图标处理
+        if (status.user?.mbrank)! >= 1 && (status.user?.mbrank)! <= 6  {
+            mbrankImage = UIImage(named: "common_icon_membership_level\(status.user!.mbrank)")
+        }
+        
+        // 认证图标处理
+        switch status.user?.verified_type ?? -1 {
+        case 0:
+            verified_image = UIImage(named: "avatar_vip")
+            break
+        case 2, 3, 5:
+            verified_image = UIImage(named: "avatar_enterprise_vip")
+            break
+        case 220:
+            verified_image = UIImage(named: "avatar_grassroot")
+            break
+        default:
+            verified_image = nil
+            break
+        }
+        
+        // 来源处理
+        if let sourceStr = status.source, sourceStr != ""{
+//            let startIndex = (sourceStr.range(of: "<") as! NSRange).location
+//            let length = sourceStr.rang
+//            let length = sourceStr.rangeOfString("<", options: NSStringCompareOptions.BackwardsSearch).location - startIndex
+//            let rest = sourceStr.substringWithRange(NSMakeRange(startIndex, length))
+            source_Text = "习近平的iphone"
+        }
+        
+        // 处理时间
+        if let timeStr = status.created_at, timeStr != "" {
+            let date = Date.creatTime(with: timeStr, and: "EE MM dd HH:mm:ss Z yyyy")
+            created_Time = date.formatterDateDes()
+        }
+        
+        // 处理头像
+        icon_URL = URL(string: status.user?.profile_image_url ?? "")
+    }
+    
+
+}

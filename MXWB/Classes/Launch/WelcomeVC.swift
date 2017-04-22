@@ -35,6 +35,12 @@ class WelcomeVC: UIViewController {
     {
         iconView.layer.cornerRadius = 50
         iconView.layer.masksToBounds = true
+        
+        guard let url = URL(string: OAuthAccount.getAccount()!.avatar_large!) else {
+            assert(OAuthAccount.getAccount() != nil, "必须授权后才能进入欢迎界面")
+            return
+        }
+        iconView.kf.setImage(with: url)
     }
     
     /// 通过改变约束实现动画

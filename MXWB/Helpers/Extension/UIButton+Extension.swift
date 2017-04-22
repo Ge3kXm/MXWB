@@ -8,7 +8,8 @@
 
 import UIKit
 
-extension UIButton {
+extension UIButton
+{
     
     convenience init(imageName: String, backgroundImage: String) {
         self.init()
