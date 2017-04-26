@@ -18,12 +18,16 @@ PODS:
   - R.swift (3.2.0):
     - R.swift.Library (~> 3.0.2)
   - R.swift.Library (3.0.2)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SVProgressHUD (2.1.2)
 
 DEPENDENCIES:
   - AFNetworking
   - Kingfisher (~> 3.6.2)
   - R.swift (~> 3.2.0)
+  - SDWebImage (~> 4.0.0)
   - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -31,8 +35,9 @@ SPEC CHECKSUMS:
   Kingfisher: 2c94e72c6830622c71d06adf4ea024c37d316830
   R.swift: 207a372a2b5977caef440c696a368009460641d1
   R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: 349c49451464ddd9581ed535d0f4c20acba0eaa1
+PODFILE CHECKSUM: bab3517a258985bb1bd661c75d0f4afd2bf4d6ca
 
 COCOAPODS: 1.1.1

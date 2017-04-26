@@ -19,7 +19,8 @@ class StatusModel: NSObject {
     var user: UserModel?
     /// 内容
     var text: String?
-    
+    /// 配图数组
+    var pic_urls: [[String: Any]]?
     
 
     init(dics: [String: Any]) {

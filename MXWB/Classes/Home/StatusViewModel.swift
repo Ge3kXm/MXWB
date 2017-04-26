@@ -21,6 +21,8 @@ class StatusViewModel: NSObject {
     var created_Time: String = ""
     /// 微博格式化之后的来源
     var source_Text: String = ""
+    /// 配图Url
+    var thumbnail_urls: [URL]?
     
     init(status: StatusModel)
     {
@@ -63,6 +65,20 @@ class StatusViewModel: NSObject {
         
         // 处理头像
         icon_URL = URL(string: status.user?.profile_image_url ?? "")
+        
+        // 缓存图片url地址
+        if let urls = status.pic_urls {
+            thumbnail_urls = [URL]()
+            for dic in urls {
+                guard let thumbnail_pic = dic["thumbnail_pic"] as? String else {
+                    // 为空跳出本场for循环
+                    continue
+                }
+                let thumbnail_url = URL(string: thumbnail_pic)!
+                thumbnail_urls?.append(thumbnail_url)
+            }
+        }
+
     }
     
 

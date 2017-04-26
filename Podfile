@@ -9,4 +9,5 @@ target :MXWB do
 	pod ‘SVProgressHUD’
 	pod ‘R.swift’,'~> 3.2.0’
 	pod 'Kingfisher', '~> 3.6.2'
+	pod 'SDWebImage', '~> 4.0.0'
 end

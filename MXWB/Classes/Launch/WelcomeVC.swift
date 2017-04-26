@@ -40,7 +40,7 @@ class WelcomeVC: UIViewController {
             assert(OAuthAccount.getAccount() != nil, "必须授权后才能进入欢迎界面")
             return
         }
-        iconView.kf.setImage(with: url)
+        iconView.sd_setImage(with: url)
     }
     
     /// 通过改变约束实现动画

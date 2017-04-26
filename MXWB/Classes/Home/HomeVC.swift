@@ -8,10 +8,11 @@
 
 import UIKit
 import SVProgressHUD
+import SDWebImage
 
 class HomeVC: BaseTableVC
 {
-    //MARK: LazyLoad
+    //MARK: - LazyLoad
     private lazy var transitionMg = { () -> MXTransitionManager in
         let transitionMg = MXTransitionManager()
         transitionMg.presentViewFrame = CGRect(x: 100, y: 45, width: 200, height: 300)
@@ -26,11 +27,14 @@ class HomeVC: BaseTableVC
     
     var statusArray: [StatusViewModel]? {
         didSet {
-            tableView.reloadData()
+//            tableView.reloadData()
         }
     }
     
-    //MARK: LifeCycle
+    var cellHeightCache = [String: CGFloat]()
+    
+    
+    //MARK: - LifeCycle
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -38,6 +42,7 @@ class HomeVC: BaseTableVC
             visitorView?.setupViews(imageName: nil, title: "关注一些人去～")
             return
         }
+        initUI()
         setupNav()
         addNotification()
         getHomeData()
@@ -48,12 +53,18 @@ class HomeVC: BaseTableVC
         NotificationCenter.default.removeObserver(self)
     }
     
-    //MARK: PrivateFunc
+    //MARK: - PrivateFunc
     private func addNotification()
     {
         NotificationCenter.default.addObserver(self, selector: #selector(HomeVC.menuDidPresented), name: NSNotification.Name(rawValue: MXWB_NOTIFICATION_TRANSITIONMANAGER_DIDPRESENTED), object: transitionMg)
         NotificationCenter.default.addObserver(self, selector: #selector(HomeVC.menuDidDismissed), name: NSNotification.Name(rawValue: MXWB_NOTIFICATION_TRANSITIONMANAGER_DIDDISMISSED), object: transitionMg)
 
+    }
+    
+    private func initUI()
+    {
+        tableView.estimatedRowHeight = 400
+//        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     private func setupNav()
@@ -70,8 +81,7 @@ class HomeVC: BaseTableVC
     /// 记得使用xib前一定要注册
     private func registerCell()
     {
-        let cellnNib = UINib(nibName: "HomeTableViewCell", bundle: nil)
-        tableView.register(cellnNib, forCellReuseIdentifier: "HomeTableViewCell")
+        tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
     }
     
     @objc private func titleBtnClick(titleButton: TitleButton)
@@ -133,6 +143,37 @@ class HomeVC: BaseTableVC
                 statusVMArray.append(statusViewModel)
             }
             self.statusArray = statusVMArray
+            self.cacheImages(self.statusArray)
+        }
+    }
+    
+    /// 缓存配图
+    func cacheImages(_ statusVMs: [StatusViewModel]?)
+    {
+        // 创建dispatchGroup
+        let group = DispatchGroup()
+        
+        for statusVM in statusVMs!
+        {
+            guard let pic_urls = statusVM.thumbnail_urls else {
+                // 没有配图跳出本次循环
+                continue
+            }
+            for url in pic_urls
+            {
+                group.enter()
+                // 下载图片
+                SDWebImageManager.shared().loadImage(with: url, options: SDWebImageOptions(rawValue: 0), progress: nil, completed: { (image, data, error, _, _, _) in
+                    MXLog("下载图片")
+                    group.leave()
+                })
+            }
+        }
+        
+        // 当下载完成之后再调用notify方法通知
+        group.notify(queue: DispatchQueue.main) { 
+            self.tableView.reloadData()
+            MXLog("下载完毕")
         }
     }
 }
@@ -146,7 +187,16 @@ extension HomeVC
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        return 150
+        let statusVM = statusArray![indexPath.row]
+        // 先从缓存中取高度
+        guard let cacheHeight = cellHeightCache[statusVM.status.idstr ?? "-1"] else {
+            // 缓存没有高度则重新计算高度
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell") as! HomeTableViewCell
+            let cellHeight = cell.calculateCellHeight(statusVM: statusVM)
+            cellHeightCache[statusVM.status.idstr ?? "-1"] = cellHeight
+            return cellHeight
+        }
+        return cacheHeight
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
