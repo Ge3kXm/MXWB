@@ -63,7 +63,7 @@ class HomeVC: BaseTableVC
     
     private func initUI()
     {
-        tableView.estimatedRowHeight = 350
+        tableView.estimatedRowHeight = 400
 //        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
 //        tableView.rowHeight = UITableViewAutomaticDimension
     }

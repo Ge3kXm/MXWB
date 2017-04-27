@@ -10,7 +10,7 @@ import UIKit
 
 func MXLog<T> (_ message: T, fileName: String = #file, funcName: String = #function, lineNumber: Int = #line){
     #if DEBUG
-        print("\(funcName)\(lineNumber)\(message)")
+        print("\(funcName)" + "lineNumber:" + "\(lineNumber)" + "message" + "\(message)")
     #else
     
     #endif

@@ -44,11 +44,9 @@ class HomeTableViewCell: UITableViewCell {
             sourceLabel.text = statusViewMoldel?.source_Text
             // 内容
             contentLabel.text = statusViewMoldel?.status.text
-            // 更新collectionView
-            collectionView.reloadData()
-            
+
             let (itemSize, clvSize) = calculateSize()
-            
+            // item不能为zero否则报错
             if itemSize != CGSize.zero
             {
                 colletionLayout.itemSize = itemSize
@@ -56,6 +54,9 @@ class HomeTableViewCell: UITableViewCell {
             
             clvHeightCon.constant = clvSize.height;
             clvWidthCon.constant = clvSize.width
+            
+            // 更新collectionView
+            collectionView.reloadData()
         }
     }
     
@@ -107,13 +108,14 @@ class HomeTableViewCell: UITableViewCell {
         
         self.layoutIfNeeded()
         
-        let cellHeight = self.bottomView.frame.maxY
+        let cellHeight = collectionView.frame.maxY
         
+        MXLog(bottomView.frame)
         MXLog(cellHeight)
         return cellHeight
     }
     
-    //MARK: - InitFunc
+    // MARK: - InitFunc
     override func awakeFromNib()
     {
         super.awakeFromNib()
