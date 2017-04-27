@@ -83,6 +83,7 @@ class HomeVC: BaseTableVC
     private func registerCell()
     {
         tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
+        tableView.register(UINib(nibName: "HomeForwardCell", bundle: nil), forCellReuseIdentifier: "HomeForwardCell")
     }
     
     @objc private func titleBtnClick(titleButton: TitleButton)
@@ -192,21 +193,38 @@ extension HomeVC
         // 先从缓存中取高度
         guard let cacheHeight = cellHeightCache[statusVM.status.idstr ?? "-1"] else {
             // 缓存没有高度则重新计算高度
-            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell") as! HomeTableViewCell
-            let cellHeight = cell.calculateCellHeight(statusVM: statusVM)
-            cellHeightCache[statusVM.status.idstr ?? "-1"] = cellHeight
-            return cellHeight
+            if statusVM.forward_Text != nil {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "HomeForwardCell") as! HomeForwardCell
+                let cellHeight = cell.calculateCellHeight(statusVM: statusVM)
+                
+                cellHeightCache[statusVM.status.idstr ?? "-1"] = cellHeight
+                return cellHeight
+            }else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell") as! HomeTableViewCell
+                let cellHeight = cell.calculateCellHeight(statusVM: statusVM)
+                
+                cellHeightCache[statusVM.status.idstr ?? "-1"] = cellHeight
+                return cellHeight
+            }
         }
         return cacheHeight
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell") as! HomeTableViewCell
+        let statusVM = statusArray![indexPath.row]
         
-        cell.statusViewMoldel = self.statusArray?[indexPath.row]
-        
-        return cell
+        // 有转发的
+        if statusVM.forward_Text != nil {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeForwardCell") as! HomeForwardCell
+            cell.statusViewMoldel = self.statusArray?[indexPath.row]
+            return cell
+        // 没有转发
+        }else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell") as! HomeTableViewCell
+            cell.statusViewMoldel = self.statusArray?[indexPath.row]
+            return cell
+        }
     }
 }
 

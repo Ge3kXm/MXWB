@@ -44,6 +44,8 @@
 		4DD39D6F1EB0941000BD0CAC /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD39D661EB0941000BD0CAC /* HomeTableViewCell.swift */; };
 		4DD39D701EB0941000BD0CAC /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD39D671EB0941000BD0CAC /* HomeTableViewCell.xib */; };
 		4DD39D711EB0941000BD0CAC /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD39D691EB0941000BD0CAC /* StatusViewModel.swift */; };
+		4DD39D741EB1DA0E00BD0CAC /* HomeForwardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD39D721EB1DA0E00BD0CAC /* HomeForwardCell.swift */; };
+		4DD39D751EB1DA0E00BD0CAC /* HomeForwardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD39D731EB1DA0E00BD0CAC /* HomeForwardCell.xib */; };
 		5A475A54E3044B2E5E8097BA /* Pods_MXWB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37DE71E9BF49BA5A2DF940F3 /* Pods_MXWB.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,8 @@
 		4DD39D661EB0941000BD0CAC /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		4DD39D671EB0941000BD0CAC /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		4DD39D691EB0941000BD0CAC /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		4DD39D721EB1DA0E00BD0CAC /* HomeForwardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeForwardCell.swift; sourceTree = "<group>"; };
+		4DD39D731EB1DA0E00BD0CAC /* HomeForwardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeForwardCell.xib; sourceTree = "<group>"; };
 		85CDEFFE8F774E31E9A0BAF8 /* Pods-MXWB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXWB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MXWB/Pods-MXWB.debug.xcconfig"; sourceTree = "<group>"; };
 		B91B1AA5236276B2192D3A3B /* Pods-MXWB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXWB.release.xcconfig"; path = "Pods/Target Support Files/Pods-MXWB/Pods-MXWB.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -368,6 +372,8 @@
 				4DD39D651EB0941000BD0CAC /* HomeCollectionViewCell.xib */,
 				4DD39D661EB0941000BD0CAC /* HomeTableViewCell.swift */,
 				4DD39D671EB0941000BD0CAC /* HomeTableViewCell.xib */,
+				4DD39D721EB1DA0E00BD0CAC /* HomeForwardCell.swift */,
+				4DD39D731EB1DA0E00BD0CAC /* HomeForwardCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -478,6 +484,7 @@
 			files = (
 				4887CF361EA0818D00F2CF10 /* Popover.storyboard in Resources */,
 				4D4A1AAE1E9F20A4009B654D /* Assets.xcassets in Resources */,
+				4DD39D751EB1DA0E00BD0CAC /* HomeForwardCell.xib in Resources */,
 				4DD39D701EB0941000BD0CAC /* HomeTableViewCell.xib in Resources */,
 				4D1BCBB71EA86BD90042924A /* WelcomeVC.storyboard in Resources */,
 				4D4A1AB81E9F20A4009B654D /* VisitorView.xib in Resources */,
@@ -591,6 +598,7 @@
 				4D4A1AB61E9F20A4009B654D /* TabBarVC.swift in Sources */,
 				4887CF381EA081C900F2CF10 /* MXTransitionManager.swift in Sources */,
 				4D4A1ABF1E9F2E35009B654D /* TitleButton.swift in Sources */,
+				4DD39D741EB1DA0E00BD0CAC /* HomeForwardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

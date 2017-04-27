@@ -1,16 +1,16 @@
 //
-//  HomeTableViewCell.swift
+//  HomeForwardCell.swift
 //  MXWB
 //
-//  Created by maRk on 2017/4/22.
+//  Created by maRk on 2017/4/27.
 //  Copyright © 2017年 maRk. All rights reserved.
 //
 
 import UIKit
 import SDWebImage
 
-class HomeTableViewCell: UITableViewCell {
-
+class HomeForwardCell: UITableViewCell {
+    
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var verifyIconView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -25,6 +25,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var clvWidthCon: NSLayoutConstraint!
     @IBOutlet weak var clvHeightCon: NSLayoutConstraint!
     
+    @IBOutlet weak var forwardLabel: UILabel!
     var statusViewMoldel: StatusViewModel? {
         didSet {
             // 头像
@@ -44,7 +45,7 @@ class HomeTableViewCell: UITableViewCell {
             sourceLabel.text = statusViewMoldel?.source_Text
             // 内容
             contentLabel.text = statusViewMoldel?.status.text
-
+            
             let (itemSize, clvSize) = calculateSize()
             // item不能为zero否则报错
             if itemSize != CGSize.zero
@@ -57,6 +58,11 @@ class HomeTableViewCell: UITableViewCell {
             
             // 更新collectionView
             collectionView.reloadData()
+            
+            if let forward_Text = statusViewMoldel?.forward_Text
+            {
+                forwardLabel.text = forward_Text
+            }
         }
     }
     
@@ -70,7 +76,7 @@ class HomeTableViewCell: UITableViewCell {
         if count == 0 {
             return (CGSize.zero, CGSize.zero)
         }
-    
+        
         // 有一张配图时按照图片的大小来设置cell的大小
         if count == 1 {
             // 从缓存中取出图片，且一定有图
@@ -102,7 +108,7 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     /// 计算Cell的高度
-    func calculateCellHeight(statusVM: StatusViewModel) -> CGFloat 
+    func calculateCellHeight(statusVM: StatusViewModel) -> CGFloat
     {
         self.statusViewMoldel = statusVM
         
@@ -129,7 +135,6 @@ class HomeTableViewCell: UITableViewCell {
         nameLabel.sizeToFit()
         timeLabel.sizeToFit()
     }
-    
     /// 注册Cell
     private func registerCell()
     {
@@ -137,7 +142,7 @@ class HomeTableViewCell: UITableViewCell {
     }
 }
 
-extension HomeTableViewCell: UICollectionViewDataSource
+extension HomeForwardCell: UICollectionViewDataSource
 {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
@@ -152,4 +157,3 @@ extension HomeTableViewCell: UICollectionViewDataSource
         return cell
     }
 }
-

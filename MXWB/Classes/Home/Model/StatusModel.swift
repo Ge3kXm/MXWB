@@ -21,7 +21,8 @@ class StatusModel: NSObject {
     var text: String?
     /// 配图数组
     var pic_urls: [[String: Any]]?
-    
+    /// 转发微博
+    var retweeted_status: StatusModel?
 
     init(dics: [String: Any]) {
         super.init()
@@ -33,6 +34,11 @@ class StatusModel: NSObject {
         // 如果是user，则需要在内部再转换一次
         if key == "user" {
             user = UserModel(dict: value as! [String: Any])
+            return
+        }
+        
+        if key == "retweeted_status" {
+            retweeted_status = StatusModel(dics: value as! [String: Any])
             return
         }
         super.setValue(value, forKey: key)

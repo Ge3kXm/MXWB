@@ -23,6 +23,8 @@ class StatusViewModel: NSObject {
     var source_Text: String = ""
     /// 配图Url
     var thumbnail_urls: [URL]?
+    /// 缓存转发文字
+    var forward_Text: String?
     
     init(status: StatusModel)
     {
@@ -67,7 +69,7 @@ class StatusViewModel: NSObject {
         icon_URL = URL(string: status.user?.profile_image_url ?? "")
         
         // 缓存图片url地址
-        if let urls = status.pic_urls {
+        if let urls = status.retweeted_status?.pic_urls?.count != 0 ? status.retweeted_status?.pic_urls : status.pic_urls {
             thumbnail_urls = [URL]()
             for dic in urls {
                 guard let thumbnail_pic = dic["thumbnail_pic"] as? String else {
@@ -77,6 +79,13 @@ class StatusViewModel: NSObject {
                 let thumbnail_url = URL(string: thumbnail_pic)!
                 thumbnail_urls?.append(thumbnail_url)
             }
+        }
+        
+        // 处理转发文字
+        if let text = status.retweeted_status?.text
+        {
+            let name = status.user?.screen_name ?? ""
+            forward_Text = "@" + name + ":" + text
         }
 
     }
