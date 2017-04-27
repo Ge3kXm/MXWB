@@ -13,7 +13,6 @@ class QRCodeVC: UIViewController {
     @IBOutlet weak var closeBtn: UIBarButtonItem!
     @IBOutlet weak var photoAlbumBtn: UIBarButtonItem!
     @IBOutlet weak var tabbar: UITabBar!
-    
     @IBOutlet weak var qrScanTopCons: NSLayoutConstraint!
     @IBOutlet weak var qrCtScanHeightCons: NSLayoutConstraint!
     
@@ -22,13 +21,15 @@ class QRCodeVC: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool)
+    {
         super.viewWillAppear(animated)
         
         startAnimation()
     }
 
-    func startAnimation() {
+    func startAnimation()
+    {
         qrScanTopCons.constant = -qrCtScanHeightCons.constant
         // 强制刷新
         view.layoutIfNeeded()
@@ -49,7 +50,8 @@ class QRCodeVC: UIViewController {
 }
 
 extension QRCodeVC: UITabBarDelegate {
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem)
+    {
         qrCtScanHeightCons.constant = item.tag == 0 ? 150 : 150
         view.layoutIfNeeded()
         

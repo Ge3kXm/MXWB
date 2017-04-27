@@ -59,6 +59,7 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - PrivateFunc
     /// 计算item Size和collectionView Size
     private func calculateSize() -> (CGSize, CGSize)
     {
@@ -97,7 +98,6 @@ class HomeTableViewCell: UITableViewCell {
         let height = imageHeight * CGFloat(row) + CGFloat(row - 1) * imageMargin
         
         return (CGSize(width: imageWidth, height: imageHeight), CGSize(width: width, height: height))
-        
     }
     
     /// 计算Cell的高度
@@ -109,15 +109,24 @@ class HomeTableViewCell: UITableViewCell {
         
         let cellHeight = self.bottomView.frame.maxY
         
+        MXLog(cellHeight)
         return cellHeight
     }
     
+    //MARK: - InitFunc
     override func awakeFromNib()
     {
         super.awakeFromNib()
+        initUI()
         registerCell()
     }
     
+    /// 初始化属性
+    func initUI()
+    {
+        nameLabel.sizeToFit()
+        timeLabel.sizeToFit()
+    }
     /// 注册Cell
     private func registerCell()
     {
