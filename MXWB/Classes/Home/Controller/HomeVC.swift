@@ -27,7 +27,7 @@ class HomeVC: BaseTableVC
     
     var statusArray: [StatusViewModel]? {
         didSet {
-//            tableView.reloadData()
+
         }
     }
     
@@ -64,6 +64,12 @@ class HomeVC: BaseTableVC
     private func initUI()
     {
         tableView.estimatedRowHeight = 400
+        
+        // 继承自tableVC都带此属性
+        refreshControl = HomeRefreshView()
+        refreshControl?.addTarget(self, action: #selector(HomeVC.getHomeData), for: UIControlEvents.valueChanged)
+        refreshControl?.beginRefreshing()
+        
 //        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
 //        tableView.rowHeight = UITableViewAutomaticDimension
     }
@@ -146,6 +152,8 @@ class HomeVC: BaseTableVC
             }
             self.statusArray = statusVMArray
             self.cacheImages(self.statusArray)
+            
+            self.refreshControl?.endRefreshing()
         }
     }
     

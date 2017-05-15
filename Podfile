@@ -10,4 +10,5 @@ target :MXWB do
 	pod ‘R.swift’,'~> 3.2.0’
 	pod 'Kingfisher', '~> 3.6.2'
 	pod 'SDWebImage', '~> 4.0.0'
+	pod 'SnapKit', '~> 3.2.0'
 end
