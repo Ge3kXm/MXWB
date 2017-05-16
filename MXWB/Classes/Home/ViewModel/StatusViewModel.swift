@@ -25,6 +25,8 @@ class StatusViewModel: NSObject {
     var thumbnail_urls: [URL]?
     /// 缓存转发文字
     var forward_Text: String?
+    /// 点击后的大图
+    var bmiddle_urls: [URL]?
     
     init(status: StatusModel)
     {
@@ -71,13 +73,19 @@ class StatusViewModel: NSObject {
         // 缓存图片url地址
         if let urls = status.retweeted_status?.pic_urls?.count != 0 ? status.retweeted_status?.pic_urls : status.pic_urls {
             thumbnail_urls = [URL]()
+            bmiddle_urls = [URL]()
             for dic in urls {
                 guard let thumbnail_pic = dic["thumbnail_pic"] as? String else {
                     // 为空跳出本场for循环
                     continue
                 }
+                // 缩略图
                 let thumbnail_url = URL(string: thumbnail_pic)!
                 thumbnail_urls?.append(thumbnail_url)
+                
+                // 大图
+                let bmiddle = thumbnail_pic.replacingOccurrences(of: "thumbnail_pic", with: "bmiddle")
+                bmiddle_urls?.append(URL(string: bmiddle)!)
             }
         }
         

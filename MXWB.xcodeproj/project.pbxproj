@@ -39,6 +39,8 @@
 		4DBC9CDE1EC9A75B0096867D /* HomeRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC9CDD1EC9A75B0096867D /* HomeRefreshView.swift */; };
 		4DBC9CE01EC9A7AA0096867D /* RefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DBC9CDF1EC9A7AA0096867D /* RefreshView.xib */; };
 		4DBC9CE21ECA9EF30096867D /* StatusListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC9CE11ECA9EF30096867D /* StatusListModel.swift */; };
+		4DBC9CE41ECAA57E0096867D /* HomeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC9CE31ECAA57E0096867D /* HomeCollectionView.swift */; };
+		4DBC9CE71ECAB3F50096867D /* MXPicBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC9CE61ECAB3F50096867D /* MXPicBrowser.swift */; };
 		4DD39D6A1EB0941000BD0CAC /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD39D5F1EB0941000BD0CAC /* HomeVC.swift */; };
 		4DD39D6B1EB0941000BD0CAC /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD39D611EB0941000BD0CAC /* StatusModel.swift */; };
 		4DD39D6C1EB0941000BD0CAC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD39D621EB0941000BD0CAC /* UserModel.swift */; };
@@ -100,6 +102,8 @@
 		4DBC9CDD1EC9A75B0096867D /* HomeRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRefreshView.swift; sourceTree = "<group>"; };
 		4DBC9CDF1EC9A7AA0096867D /* RefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshView.xib; sourceTree = "<group>"; };
 		4DBC9CE11ECA9EF30096867D /* StatusListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusListModel.swift; sourceTree = "<group>"; };
+		4DBC9CE31ECAA57E0096867D /* HomeCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionView.swift; sourceTree = "<group>"; };
+		4DBC9CE61ECAB3F50096867D /* MXPicBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXPicBrowser.swift; sourceTree = "<group>"; };
 		4DD39D5F1EB0941000BD0CAC /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		4DD39D611EB0941000BD0CAC /* StatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
 		4DD39D621EB0941000BD0CAC /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -249,6 +253,7 @@
 		4D4A1A971E9F20A4009B654D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4DBC9CE51ECAB3580096867D /* PicBrowser */,
 				4DBC9CDC1EC9A7380096867D /* RefreshView */,
 				4DD39D5E1EB0941000BD0CAC /* Controller */,
 				4DD39D601EB0941000BD0CAC /* Model */,
@@ -364,6 +369,14 @@
 			path = RefreshView;
 			sourceTree = "<group>";
 		};
+		4DBC9CE51ECAB3580096867D /* PicBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				4DBC9CE61ECAB3F50096867D /* MXPicBrowser.swift */,
+			);
+			path = PicBrowser;
+			sourceTree = "<group>";
+		};
 		4DD39D5E1EB0941000BD0CAC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +404,7 @@
 				4DD39D671EB0941000BD0CAC /* HomeTableViewCell.xib */,
 				4DD39D721EB1DA0E00BD0CAC /* HomeForwardCell.swift */,
 				4DD39D731EB1DA0E00BD0CAC /* HomeForwardCell.xib */,
+				4DBC9CE31ECAA57E0096867D /* HomeCollectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -591,6 +605,7 @@
 				4D4A1AB21E9F20A4009B654D /* MeVC.swift in Sources */,
 				4DBC9CDE1EC9A75B0096867D /* HomeRefreshView.swift in Sources */,
 				4DBC9CE21ECA9EF30096867D /* StatusListModel.swift in Sources */,
+				4DBC9CE41ECAA57E0096867D /* HomeCollectionView.swift in Sources */,
 				4D4A1AB31E9F20A4009B654D /* MessageVC.swift in Sources */,
 				4887CF3F1EA0B37200F2CF10 /* QRCodeVC.swift in Sources */,
 				4D1BCBAE1EA612D90042924A /* OAuthVC.swift in Sources */,
@@ -614,6 +629,7 @@
 				4D4A1ABB1E9F20A4009B654D /* MXLog.swift in Sources */,
 				4D4A1AAF1E9F20A4009B654D /* DiscoverVC.swift in Sources */,
 				4D4A1AB41E9F20A4009B654D /* BaseTableVC.swift in Sources */,
+				4DBC9CE71ECAB3F50096867D /* MXPicBrowser.swift in Sources */,
 				4D4A1AB71E9F20A4009B654D /* VisitorView.swift in Sources */,
 				4D4A1AB61E9F20A4009B654D /* TabBarVC.swift in Sources */,
 				4887CF381EA081C900F2CF10 /* MXTransitionManager.swift in Sources */,

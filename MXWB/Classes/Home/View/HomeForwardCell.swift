@@ -19,11 +19,7 @@ class HomeForwardCell: UITableViewCell {
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var bottomView: UIView!
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var colletionLayout: UICollectionViewFlowLayout!
-    
-    @IBOutlet weak var clvWidthCon: NSLayoutConstraint!
-    @IBOutlet weak var clvHeightCon: NSLayoutConstraint!
+    @IBOutlet weak var collectionView: HomeCollectionView!
     
     @IBOutlet weak var forwardLabel: UILabel!
     var statusViewMoldel: StatusViewModel? {
@@ -46,19 +42,10 @@ class HomeForwardCell: UITableViewCell {
             // 内容
             contentLabel.text = statusViewMoldel?.status.text
             
-            let (itemSize, clvSize) = calculateSize()
-            // item不能为zero否则报错
-            if itemSize != CGSize.zero
-            {
-                colletionLayout.itemSize = itemSize
-            }
+            // 设置collection配图
+            collectionView.statusViewMoldel = statusViewMoldel
             
-            clvHeightCon.constant = clvSize.height;
-            clvWidthCon.constant = clvSize.width
-            
-            // 更新collectionView
-            collectionView.reloadData()
-            
+            // 转发文字
             if let forward_Text = statusViewMoldel?.forward_Text
             {
                 forwardLabel.text = forward_Text

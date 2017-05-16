@@ -57,6 +57,8 @@ class HomeVC: BaseTableVC
     {
         NotificationCenter.default.addObserver(self, selector: #selector(HomeVC.menuDidPresented), name: NSNotification.Name(rawValue: MXWB_NOTIFICATION_TRANSITIONMANAGER_DIDPRESENTED), object: transitionMg)
         NotificationCenter.default.addObserver(self, selector: #selector(HomeVC.menuDidDismissed), name: NSNotification.Name(rawValue: MXWB_NOTIFICATION_TRANSITIONMANAGER_DIDDISMISSED), object: transitionMg)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeVC.presentPicBrowser), name: NSNotification.Name(rawValue: MXWB_NOTIFICATION_COLLECTIONVIEWCELL_SELECTED), object: nil)
 
     }
     
@@ -126,6 +128,22 @@ class HomeVC: BaseTableVC
     @objc private func menuDidDismissed()
     {
         titleBtn.isSelected = false
+    }
+    
+    @objc private func presentPicBrowser(notice: Notification)
+    {
+        guard let urls = notice.userInfo!["bmiddle_url"] as? [URL] else {
+            MXLog("图片不能为空")
+            return
+        }
+        
+        guard let indexPath = notice.userInfo!["indexPath"] as? IndexPath else {
+            MXLog("索引不能为空")
+            return
+        }
+        let brVC = MXPicBrowser(urls: urls, indexPath: indexPath)
+        present(brVC, animated: true, completion: nil)
+        
     }
     
     func loadData(_ lastFlag: Bool) {

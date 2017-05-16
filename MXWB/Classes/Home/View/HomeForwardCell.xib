@@ -112,7 +112,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ois-D2-b8w">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ois-D2-b8w" customClass="HomeCollectionView" customModule="MXWB" customModuleProvider="target">
                                 <rect key="frame" x="10" y="38" width="232" height="152.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -126,6 +126,9 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <connections>
+                                    <outlet property="clvHeightCon" destination="nsX-uv-x9L" id="AAM-NE-VLF"/>
+                                    <outlet property="clvWidthCon" destination="TEK-ty-F9F" id="poM-Ex-eam"/>
+                                    <outlet property="colletionLayout" destination="Uc4-xb-RMH" id="GgK-CX-fVl"/>
                                     <outlet property="dataSource" destination="XSg-L1-TQ2" id="sCT-3U-kbv"/>
                                 </connections>
                             </collectionView>
@@ -167,10 +170,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="bottomView" destination="GGj-rg-xPd" id="FwU-fQ-0lg"/>
-                <outlet property="clvHeightCon" destination="nsX-uv-x9L" id="gOs-k0-9G5"/>
-                <outlet property="clvWidthCon" destination="TEK-ty-F9F" id="MiT-P8-pMQ"/>
                 <outlet property="collectionView" destination="Ois-D2-b8w" id="QMz-s5-Gym"/>
-                <outlet property="colletionLayout" destination="Uc4-xb-RMH" id="DIg-C7-hWI"/>
                 <outlet property="contentLabel" destination="q2J-pb-hcq" id="mRb-N3-uIB"/>
                 <outlet property="forwardLabel" destination="542-9H-DGR" id="yWf-WI-767"/>
                 <outlet property="iconImageView" destination="jda-TY-N3P" id="zoS-mb-lNB"/>
@@ -180,7 +180,7 @@
                 <outlet property="verifyIconView" destination="mqU-4B-zd2" id="WrK-oX-SuA"/>
                 <outlet property="vipIconView" destination="7sa-Rf-aq9" id="b6t-EW-uCX"/>
             </connections>
-            <point key="canvasLocation" x="-2271" y="88"/>
+            <point key="canvasLocation" x="-3309" y="172"/>
         </tableViewCell>
     </objects>
     <resources>
