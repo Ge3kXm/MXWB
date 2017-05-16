@@ -84,7 +84,7 @@ class StatusViewModel: NSObject {
                 thumbnail_urls?.append(thumbnail_url)
                 
                 // 大图
-                let bmiddle = thumbnail_pic.replacingOccurrences(of: "thumbnail_pic", with: "bmiddle")
+                let bmiddle = thumbnail_pic.replacingOccurrences(of: "thumbnail", with: "bmiddle")
                 bmiddle_urls?.append(URL(string: bmiddle)!)
             }
         }

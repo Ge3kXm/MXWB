@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MXPicBrowser: UIViewController {
     var urls: [URL]
@@ -15,14 +16,14 @@ class MXPicBrowser: UIViewController {
     lazy var saveButton: UIButton = {
         var saveBtn = UIButton()
         saveBtn.setTitle("保存", for: UIControlState.normal)
-        saveBtn.addTarget(self, action: #selector(MXPicBrowser.closeBtnClick), for: UIControlEvents.touchUpInside)
+        saveBtn.addTarget(self, action: #selector(MXPicBrowser.saveBtnClick), for: UIControlEvents.touchUpInside)
         return saveBtn
     }()
     
     lazy var closeButton: UIButton = {
         var closeBtn = UIButton()
         closeBtn.setTitle("关闭", for: UIControlState.normal)
-        closeBtn.addTarget(self, action: #selector(MXPicBrowser.saveBtnClick), for: UIControlEvents.touchUpInside)
+        closeBtn.addTarget(self, action: #selector(MXPicBrowser.closeBtnClick), for: UIControlEvents.touchUpInside)
         return closeBtn
     }()
     
@@ -61,6 +62,11 @@ class MXPicBrowser: UIViewController {
         initConstraints()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.left, animated: false)
+    }
+    
     func initConstraints() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         var cons = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[collectionView]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["collectionView": collectionView])
@@ -85,13 +91,14 @@ class MXPicBrowser: UIViewController {
 extension MXPicBrowser: UICollectionViewDataSource
 {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return urls.count
     }
     
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "MXPicBrowserCell", for: indexPath)
+        let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "MXPicBrowserCell", for: indexPath) as! MXPicBrowserCell
         cell.backgroundColor = (indexPath.item % 2 == 1) ? UIColor.red : UIColor.green
+        cell.url = urls[indexPath.item]
         return cell
     }
 }
@@ -111,10 +118,38 @@ class MXPicBrowserLayout: UICollectionViewFlowLayout {
     }
 }
 
-class MXPicBrowserCell: UICollectionViewCell {
+class MXPicBrowserCell: UICollectionViewCell, UIScrollViewDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initUI()
+    }
+    
+    var url: URL? {
+        didSet {
+            // 重置view，防止图片缩放带来的复用显示问题
+            resetView()
+            
+            imageView.sd_setImage(with: url, placeholderImage: nil, options: .retryFailed) { (image, error, _, _) in
+                
+                let height = UIScreen.main.bounds.height
+                let width = UIScreen.main.bounds.width
+
+                let scale = (image?.size.height)! / (image?.size.width)!
+                
+                let imageHeight = width * scale
+                
+                self.imageView.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: width, height: imageHeight))
+                
+                // 图片高大于屏幕高
+                if imageHeight > height {
+                    self.scrollView.contentSize = CGSize(width: width, height: imageHeight)
+                }else {
+                    let offsetY = (height - imageHeight) * 0.5
+                    self.scrollView.contentInset = UIEdgeInsetsMake(offsetY, 0, offsetY, 0)
+                }
+            }
+
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -126,10 +161,43 @@ class MXPicBrowserCell: UICollectionViewCell {
         scrollView.addSubview(imageView)
         
         scrollView.frame = bounds
-//        scrollView.backgroundColor = UIColor.darkGray
+        scrollView.backgroundColor = UIColor.darkGray
     }
     
-    lazy var scrollView = UIScrollView()
+    func resetView() {
+        // 重置set和缩放
+        scrollView.contentInset = UIEdgeInsets.zero
+        scrollView.contentOffset = CGPoint.zero
+        scrollView.contentSize = CGSize.zero
+        
+        imageView.transform = CGAffineTransform.identity
+    }
+    
+    // 哪个控件需要缩放
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
+    
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        let height = UIScreen.main.bounds.height
+        let width = UIScreen.main.bounds.width
+        
+        var offsetX = (imageView.frame.size.width - width) * 0.5
+        var offsetY = (imageView.frame.size.height - height) * 0.5
+        
+        offsetX = offsetX < 0 ? 0 : offsetX
+        offsetY = offsetY < 0 ? 0 : offsetY
+        
+        scrollView.contentInset = UIEdgeInsetsMake(offsetX, offsetY, offsetX, offsetY)
+    }
+    
+    lazy var scrollView: UIScrollView = {
+        let sc = UIScrollView()
+        sc.maximumZoomScale = 2.0
+        sc.minimumZoomScale = 0.5
+        sc.delegate = self
+        return sc
+    }()
     lazy var imageView = UIImageView()
 }
 

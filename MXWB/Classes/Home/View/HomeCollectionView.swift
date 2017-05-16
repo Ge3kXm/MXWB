@@ -95,7 +95,17 @@ class HomeCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
     // MARK: - UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         MXLog(indexPath.item)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: MXWB_NOTIFICATION_COLLECTIONVIEWCELL_SELECTED), object: self, userInfo: ["bmiddle_url": statusViewMoldel!.bmiddle_urls!, "indexPath": indexPath])
+        let url = statusViewMoldel!.bmiddle_urls![indexPath.item]
+        // 取出cell
+        let cell = collectionView.cellForItem(at: indexPath) as! HomeCollectionViewCell
+        
+        SDWebImageManager.shared().loadImage(with: url, options: SDWebImageOptions(rawValue: 0), progress: { (current, total, _) in
+            cell.imageView.progress = CGFloat(current) / CGFloat(total)
+            MXLog(cell.imageView.progress)
+        }) { (_, _, error, _, _, _) in
+
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: MXWB_NOTIFICATION_COLLECTIONVIEWCELL_SELECTED), object: self, userInfo: ["bmiddle_url": self.statusViewMoldel!.bmiddle_urls!, "indexPath": indexPath])
+        }
     }
 
 }
