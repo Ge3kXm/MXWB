@@ -25,6 +25,9 @@ class HomeVC: BaseTableVC
         return titleBtn
     }()
     
+    // 记录当前是否为最后一条weibo
+    lazy var lastFlag = false
+    
     var statusArray: [StatusViewModel]? {
         didSet {
 
@@ -45,7 +48,7 @@ class HomeVC: BaseTableVC
         initUI()
         setupNav()
         addNotification()
-        getHomeData()
+        loadData()
         registerCell()
     }
     
@@ -67,7 +70,7 @@ class HomeVC: BaseTableVC
         
         // 继承自tableVC都带此属性
         refreshControl = HomeRefreshView()
-        refreshControl?.addTarget(self, action: #selector(HomeVC.getHomeData), for: UIControlEvents.valueChanged)
+        refreshControl?.addTarget(self, action: #selector(HomeVC.loadData), for: UIControlEvents.valueChanged)
         refreshControl?.beginRefreshing()
         
 //        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
@@ -129,10 +132,21 @@ class HomeVC: BaseTableVC
         titleBtn.isSelected = false
     }
     
+
     /// 获取微博数据
-    func getHomeData()
+    func loadData()
     {
-        HttpManager.sharedManager.getHomeStatus { (statusArray: [[String: Any]]?, error: Error?) in
+        // 获取最新一条数据Id
+        var sinceId = statusArray?.first?.status.idstr ?? "0"
+        // 获取最早一条数据Id
+        var maxId = "0"
+        // 是最后一条
+        if lastFlag {
+            sinceId = "0"
+            maxId = statusArray?.last?.status.idstr ?? "0"
+        }
+        MXLog(sinceId + maxId)
+        HttpManager.sharedManager.getHomeStatus(sinceId: sinceId, maxId: maxId) { (statusArray: [[String: Any]]?, error: Error?) in
             if error != nil {
                 SVProgressHUD.showError(withStatus: "获取微博数据失败")
             }
@@ -150,7 +164,17 @@ class HomeVC: BaseTableVC
                 let statusViewModel = StatusViewModel(status: statusModel)
                 statusVMArray.append(statusViewModel)
             }
-            self.statusArray = statusVMArray
+            
+            // 请求最新
+            if sinceId != "0" {
+                self.statusArray = statusVMArray + self.statusArray!
+            // 请求更多
+            }else if maxId != "0"{
+                self.statusArray =  self.statusArray! + statusVMArray
+            }else {
+                self.statusArray = statusVMArray
+            }
+            
             self.cacheImages(self.statusArray)
             
             self.refreshControl?.endRefreshing()
@@ -226,11 +250,19 @@ extension HomeVC
         if statusVM.forward_Text != nil {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeForwardCell") as! HomeForwardCell
             cell.statusViewMoldel = self.statusArray?[indexPath.row]
+            if indexPath.row == statusArray!.count - 1 {
+                lastFlag = true
+                loadData()
+            }
             return cell
         // 没有转发
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell") as! HomeTableViewCell
             cell.statusViewMoldel = self.statusArray?[indexPath.row]
+            if indexPath.row == statusArray!.count - 1 {
+                lastFlag = true
+                loadData()
+            }
             return cell
         }
     }

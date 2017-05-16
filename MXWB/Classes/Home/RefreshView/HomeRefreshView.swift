@@ -38,7 +38,7 @@ class HomeRefreshView: UIRefreshControl {
     var rotationFlag = false
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        MXLog(object)
+//        MXLog(object)
         
         if frame.height == 0 || frame.height == -60 {
             return

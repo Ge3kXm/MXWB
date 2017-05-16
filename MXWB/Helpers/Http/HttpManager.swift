@@ -20,10 +20,14 @@ class HttpManager: AFHTTPSessionManager {
     }()
     
     /// 获取首页微博数据r
-    func getHomeStatus(finished: @escaping (_ success: [[String: Any]]?, _ error: Error?) -> ())
+    func getHomeStatus(sinceId: String, maxId: String, finished: @escaping (_ success: [[String: Any]]?, _ error: Error?) -> ())
     {
         let path = "2/statuses/home_timeline.json"
-        let parameters = ["access_token": OAuthAccount.getAccount()?.access_token!]
+        let maxId = (maxId != "0") ? "\(Int(maxId)! - 1)" : "0"
+        
+        let parameters = ["access_token": OAuthAccount.getAccount()?.access_token!,
+                              "since_id": sinceId,
+                                "max_id": maxId ]
         
         get(path, parameters: parameters, progress: nil, success: { (taks, objs) in
             let obj = objs as! [String : Any]
