@@ -8,7 +8,7 @@
 
 import UIKit
 import SVProgressHUD
-import SDWebImage
+
 
 class HomeVC: BaseTableVC
 {
@@ -28,11 +28,7 @@ class HomeVC: BaseTableVC
     // 记录当前是否为最后一条weibo
     lazy var lastFlag = false
     
-    var statusArray: [StatusViewModel]? {
-        didSet {
-
-        }
-    }
+    var statusListModel = StatusListModel()
     
     var cellHeightCache = [String: CGFloat]()
     
@@ -48,7 +44,7 @@ class HomeVC: BaseTableVC
         initUI()
         setupNav()
         addNotification()
-        loadData()
+        loadData(lastFlag)
         registerCell()
     }
     
@@ -132,96 +128,31 @@ class HomeVC: BaseTableVC
         titleBtn.isSelected = false
     }
     
-
-    /// 获取微博数据
-    func loadData()
-    {
-        // 获取最新一条数据Id
-        var sinceId = statusArray?.first?.status.idstr ?? "0"
-        // 获取最早一条数据Id
-        var maxId = "0"
-        // 是最后一条
-        if lastFlag {
-            sinceId = "0"
-            maxId = statusArray?.last?.status.idstr ?? "0"
-        }
-        MXLog(sinceId + maxId)
-        HttpManager.sharedManager.getHomeStatus(sinceId: sinceId, maxId: maxId) { (statusArray: [[String: Any]]?, error: Error?) in
+    func loadData(_ lastFlag: Bool) {
+        statusListModel.loadData(isLast: lastFlag) { (statusVMArray, error) in
             if error != nil {
-                SVProgressHUD.showError(withStatus: "获取微博数据失败")
-            }
-            
-            // 判断微博数组是否为空
-            guard let statusArr = statusArray else {
+                SVProgressHUD.showError(withStatus: "获取微博数据失败", maskType: SVProgressHUDMaskType.black)
                 return
             }
             
-            // 创建数组，要有()才代表创建
-            var statusVMArray = [StatusViewModel]()
-            // 将转换后的vm模型存入数组
-            for statusDic in statusArr {
-                let statusModel = StatusModel(dics: statusDic)
-                let statusViewModel = StatusViewModel(status: statusModel)
-                statusVMArray.append(statusViewModel)
-            }
-            
-            // 请求最新
-            if sinceId != "0" {
-                self.statusArray = statusVMArray + self.statusArray!
-            // 请求更多
-            }else if maxId != "0"{
-                self.statusArray =  self.statusArray! + statusVMArray
-            }else {
-                self.statusArray = statusVMArray
-            }
-            
-            self.cacheImages(self.statusArray)
-            
             self.refreshControl?.endRefreshing()
+            
+            self.tableView.reloadData()
         }
     }
     
-    /// 缓存配图
-    func cacheImages(_ statusVMs: [StatusViewModel]?)
-    {
-        // 创建dispatchGroup
-        let group = DispatchGroup()
-        
-        for statusVM in statusVMs!
-        {
-            guard let pic_urls = statusVM.thumbnail_urls else {
-                // 没有配图跳出本次循环
-                continue
-            }
-            for url in pic_urls
-            {
-                group.enter()
-                // 下载图片
-                SDWebImageManager.shared().loadImage(with: url, options: SDWebImageOptions(rawValue: 0), progress: nil, completed: { (image, data, error, _, _, _) in
-                    MXLog("下载图片")
-                    group.leave()
-                })
-            }
-        }
-        
-        // 当下载完成之后再调用notify方法通知
-        group.notify(queue: DispatchQueue.main) { 
-            self.tableView.reloadData()
-            MXLog("下载完毕")
-        }
-    }
 }
 
 extension HomeVC
 {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return self.statusArray?.count ?? 0
+        return self.statusListModel.statusArray?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
-        let statusVM = statusArray![indexPath.row]
+        let statusVM = statusListModel.statusArray![indexPath.row]
         // 先从缓存中取高度
         guard let cacheHeight = cellHeightCache[statusVM.status.idstr ?? "-1"] else {
             // 缓存没有高度则重新计算高度
@@ -244,24 +175,24 @@ extension HomeVC
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let statusVM = statusArray![indexPath.row]
+        let statusVM = statusListModel.statusArray![indexPath.row]
         
         // 有转发的
         if statusVM.forward_Text != nil {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeForwardCell") as! HomeForwardCell
-            cell.statusViewMoldel = self.statusArray?[indexPath.row]
-            if indexPath.row == statusArray!.count - 1 {
+            cell.statusViewMoldel = self.statusListModel.statusArray?[indexPath.row]
+            if indexPath.row == statusListModel.statusArray!.count - 1 {
                 lastFlag = true
-                loadData()
+                loadData(lastFlag)
             }
             return cell
         // 没有转发
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell") as! HomeTableViewCell
-            cell.statusViewMoldel = self.statusArray?[indexPath.row]
-            if indexPath.row == statusArray!.count - 1 {
+            cell.statusViewMoldel = self.statusListModel.statusArray?[indexPath.row]
+            if indexPath.row == statusListModel.statusArray!.count - 1 {
                 lastFlag = true
-                loadData()
+                loadData(lastFlag)
             }
             return cell
         }

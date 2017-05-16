@@ -38,6 +38,7 @@
 		4D4A1ABF1E9F2E35009B654D /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4A1ABE1E9F2E35009B654D /* TitleButton.swift */; };
 		4DBC9CDE1EC9A75B0096867D /* HomeRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC9CDD1EC9A75B0096867D /* HomeRefreshView.swift */; };
 		4DBC9CE01EC9A7AA0096867D /* RefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DBC9CDF1EC9A7AA0096867D /* RefreshView.xib */; };
+		4DBC9CE21ECA9EF30096867D /* StatusListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DBC9CE11ECA9EF30096867D /* StatusListModel.swift */; };
 		4DD39D6A1EB0941000BD0CAC /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD39D5F1EB0941000BD0CAC /* HomeVC.swift */; };
 		4DD39D6B1EB0941000BD0CAC /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD39D611EB0941000BD0CAC /* StatusModel.swift */; };
 		4DD39D6C1EB0941000BD0CAC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD39D621EB0941000BD0CAC /* UserModel.swift */; };
@@ -98,6 +99,7 @@
 		4D4A1ABE1E9F2E35009B654D /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleButton.swift; sourceTree = "<group>"; };
 		4DBC9CDD1EC9A75B0096867D /* HomeRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRefreshView.swift; sourceTree = "<group>"; };
 		4DBC9CDF1EC9A7AA0096867D /* RefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshView.xib; sourceTree = "<group>"; };
+		4DBC9CE11ECA9EF30096867D /* StatusListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusListModel.swift; sourceTree = "<group>"; };
 		4DD39D5F1EB0941000BD0CAC /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		4DD39D611EB0941000BD0CAC /* StatusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
 		4DD39D621EB0941000BD0CAC /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 			children = (
 				4DD39D611EB0941000BD0CAC /* StatusModel.swift */,
 				4DD39D621EB0941000BD0CAC /* UserModel.swift */,
+				4DBC9CE11ECA9EF30096867D /* StatusListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 			files = (
 				4D4A1AB21E9F20A4009B654D /* MeVC.swift in Sources */,
 				4DBC9CDE1EC9A75B0096867D /* HomeRefreshView.swift in Sources */,
+				4DBC9CE21ECA9EF30096867D /* StatusListModel.swift in Sources */,
 				4D4A1AB31E9F20A4009B654D /* MessageVC.swift in Sources */,
 				4887CF3F1EA0B37200F2CF10 /* QRCodeVC.swift in Sources */,
 				4D1BCBAE1EA612D90042924A /* OAuthVC.swift in Sources */,
