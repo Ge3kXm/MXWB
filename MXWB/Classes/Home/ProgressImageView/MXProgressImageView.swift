@@ -32,6 +32,7 @@ class MXProgressImageView: UIImageView {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         progressView.frame = bounds
     }
     
@@ -47,20 +48,26 @@ class MXProgressView: UIView {
     var progress: CGFloat = 0 {
         didSet {
             setNeedsDisplay()
+            MXLog("setNeedDisplay")
         }
     }
     
     override func draw(_ rect: CGRect) {
-        let radius = min(rect.size.height, rect.size.width)
-        
-        let startAngle = CGFloat(-Double.pi) * 0.5
-        let endAngle = CGFloat(Double.pi) * 2 * progress + startAngle
-        // 设置曲线
-        let bPath = UIBezierPath(arcCenter: center, radius: 20, startAngle: startAngle, endAngle: endAngle, clockwise: true)
-        bPath.addLine(to: center)
-        bPath.close()
-        UIColor.red.setFill()
-        bPath.fill()
+        MXLog(rect)
     }
+    
+//    override func draw(_ rect: CGRect) {
+//        MXLog(progress)
+//        let radius = min(rect.size.height, rect.size.width)
+//        
+//        let startAngle = CGFloat(-Double.pi) * 0.5
+//        let endAngle = CGFloat(Double.pi) * 2 * progress + startAngle
+//        // 设置曲线
+//        let bPath = UIBezierPath(arcCenter: center, radius: 20, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+//        bPath.addLine(to: center)
+//        bPath.close()
+//        UIColor.red.setFill()
+//        bPath.fill()
+//    }
     
 }

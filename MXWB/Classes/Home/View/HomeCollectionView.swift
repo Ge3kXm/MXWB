@@ -99,7 +99,7 @@ class HomeCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
         // 取出cell
         let cell = collectionView.cellForItem(at: indexPath) as! HomeCollectionViewCell
         
-        SDWebImageManager.shared().loadImage(with: url, options: SDWebImageOptions(rawValue: 0), progress: { (current, total, _) in
+        SDWebImageManager.shared().loadImage(with: url, options: SDWebImageOptions.retryFailed, progress: { (current, total, _) in
             cell.imageView.progress = CGFloat(current) / CGFloat(total)
             MXLog(cell.imageView.progress)
         }) { (_, _, error, _, _, _) in
@@ -108,4 +108,40 @@ class HomeCollectionView: UICollectionView, UICollectionViewDelegate, UICollecti
         }
     }
 
+}
+
+extension HomeCollectionView: MXPicBrowserDelegate
+{
+    func browserPresentionShowImageView(presentationController: MXPicBrowserPC, indexPath: IndexPath) -> UIImageView {
+        let iv = UIImageView()
+        let cell = cellForItem(at: indexPath) as! HomeCollectionViewCell
+        iv.image = cell.imageView.image
+        iv.sizeToFit()
+        
+        return iv
+    }
+    
+    func browserPresentionFromFrame(presentationController: MXPicBrowserPC, indexPath: IndexPath) -> CGRect {
+        let cell = cellForItem(at: indexPath) as! HomeCollectionViewCell
+        let frame = self.convert(cell.frame, to: UIApplication.shared.keyWindow)
+        
+        return frame
+    }
+    
+    func browserPresentionToFrame(presentationController: MXPicBrowserPC, indexPath: IndexPath) -> CGRect {
+        let width = UIScreen.main.bounds.width
+        let height = UIScreen.main.bounds.height
+        
+        let cell = cellForItem(at: indexPath) as! HomeCollectionViewCell
+        let scale = CGFloat(cell.imageView.image!.size.height) / CGFloat(cell.imageView.image!.size.width)
+        
+        let imageHeight = width * scale
+        
+        var offsetY: CGFloat = 0.0
+        if imageHeight < height {
+            offsetY = (height - imageHeight) * 0.5
+        }
+        
+        return CGRect(x: 0, y: offsetY, width: width, height: imageHeight)
+    }
 }

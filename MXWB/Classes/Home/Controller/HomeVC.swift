@@ -31,7 +31,9 @@ class HomeVC: BaseTableVC
     var statusListModel = StatusListModel()
     
     var cellHeightCache = [String: CGFloat]()
-    
+
+    ////////////////////// 此处暂时这么写，不知道有无影响
+    var brPresentationManager: MXPicBrowserPC = MXPicBrowserPC(presentedViewController: UIViewController(), presenting: UIViewController())
     
     //MARK: - LifeCycle
     override func viewDidLoad()
@@ -141,7 +143,16 @@ class HomeVC: BaseTableVC
             MXLog("索引不能为空")
             return
         }
+        // 通知中取出collectionView
+        guard let collectionView = notice.object as? HomeCollectionView else {
+            MXLog("collectionView不能为空")
+            return
+        }
+        
         let brVC = MXPicBrowser(urls: urls, indexPath: indexPath)
+        brVC.modalPresentationStyle = UIModalPresentationStyle.custom
+        brVC.transitioningDelegate = brPresentationManager
+        brPresentationManager.setDelegateAndIndexPath(browserDelegate: collectionView, indexPath: indexPath)
         present(brVC, animated: true, completion: nil)
         
     }
