@@ -59,9 +59,7 @@ class HomeVC: BaseTableVC
     {
         NotificationCenter.default.addObserver(self, selector: #selector(HomeVC.menuDidPresented), name: NSNotification.Name(rawValue: MXWB_NOTIFICATION_TRANSITIONMANAGER_DIDPRESENTED), object: transitionMg)
         NotificationCenter.default.addObserver(self, selector: #selector(HomeVC.menuDidDismissed), name: NSNotification.Name(rawValue: MXWB_NOTIFICATION_TRANSITIONMANAGER_DIDDISMISSED), object: transitionMg)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(HomeVC.presentPicBrowser), name: NSNotification.Name(rawValue: MXWB_NOTIFICATION_COLLECTIONVIEWCELL_SELECTED), object: nil)
-
     }
     
     private func initUI()
@@ -72,7 +70,6 @@ class HomeVC: BaseTableVC
         refreshControl = HomeRefreshView()
         refreshControl?.addTarget(self, action: #selector(HomeVC.loadData), for: UIControlEvents.valueChanged)
         refreshControl?.beginRefreshing()
-        
 //        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
 //        tableView.rowHeight = UITableViewAutomaticDimension
     }
@@ -165,7 +162,6 @@ class HomeVC: BaseTableVC
             }
             
             self.refreshControl?.endRefreshing()
-            
             self.tableView.reloadData()
         }
     }
