@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
+        let path = Bundle.main.path(forResource: "moments", ofType: "mp4")
 
         window = UIWindow()
         window?.frame = UIScreen.main.bounds
